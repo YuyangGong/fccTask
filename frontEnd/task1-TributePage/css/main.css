@@ -16,7 +16,8 @@ a:hover {
 }
 .main, .footer {
 	width: 85%;
-	margin: 0 auto;
+	margin-left: auto;
+	margin-right: auto;
 }
 .main {
 	margin-top: 3em;
@@ -24,15 +25,16 @@ a:hover {
 	border-radius: .4em;
 }
 .banner {
-	padding: 2.5em 5em 0;
 	text-align: center;
 }
 .banner h1 {
+	padding: 1em .3em 0;
 	color: #444;
 	font-family: 'heiti';
 	font-size: 4em;
 }
 .banner h2 {
+	padding: 0 1em;
 	color: #555;
 	font-size: 2.1em;
 	font-size: sans-serif;
@@ -40,7 +42,8 @@ a:hover {
 	margin-bottom: .3em;
 }
 .banner .img-show {
-	width: 100%;
+	margin: 1em auto 0;
+	width: 90%;
 	padding: .3em;
 	background-color: white;
 	border-radius: .5em;
@@ -97,4 +100,22 @@ a:hover {
 	color: #444;
 	border-top : 1px solid #eee;
 	text-align: center;
+}
+@media screen and (max-width: 768px) {
+	body {
+		font-size: 12px;
+	}
+	.main, .footer {
+	  width: 95%;
+	  margin-top: 1em;
+    }
+    .banner .img-show {
+		width: 95%;
+    }
+    .banner h1 {
+    	padding-top: .5em;
+    }
+    .content {
+	  width: 90%;
+    }
 }
