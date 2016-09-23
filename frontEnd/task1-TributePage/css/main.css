@@ -1,0 +1,100 @@
+body {
+	font-size: 15px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+body, h1, h2, h3, h4, h5, h6, div, blockquote, ul, li {
+	margin: 0;
+	padding: 0;
+}
+a {
+	color: #23527c;
+	text-decoration: none;
+}
+a:hover {
+	color: #337ab7;
+	text-decoration: underline;
+}
+.main, .footer {
+	width: 85%;
+	margin: 0 auto;
+}
+.main {
+	margin-top: 3em;
+	background-color: #eee;
+	border-radius: .4em;
+}
+.banner {
+	padding: 2.5em 5em 0;
+	text-align: center;
+}
+.banner h1 {
+	color: #444;
+	font-family: 'heiti';
+	font-size: 4em;
+}
+.banner h2 {
+	color: #555;
+	font-size: 2.1em;
+	font-size: sans-serif;
+	margin-top: .6em;
+	margin-bottom: .3em;
+}
+.banner .img-show {
+	width: 100%;
+	padding: .3em;
+	background-color: white;
+	border-radius: .5em;
+	border: 1px solid #ccc;
+}
+.banner .img-show .img-info {
+	margin: .3em;
+}
+.banner img {
+	border-radius: .3em;
+	width: 100%;
+}
+.content {
+	width: 60%;
+	margin: 3em auto 2em;
+}
+.content h3 {
+	color: #666;
+	font-size: 1.8em;
+	margin-bottom: .4em;
+}
+.content li {
+	margin-left: 3em;
+	margin-bottom: .5em;
+	font-size: .9em;
+}
+.content li .period {
+	color: #555;
+	font-size: 1.1em;
+	font-weight: 900;
+}
+.express-quot {
+	margin: 1em;
+	margin-left: 1.5em;
+	font-size: 1.6em;
+	color: #444;
+}
+.come-from {
+	margin-top: .6em;
+	font-size: .6em;
+	color: #999;
+}
+.more-info {
+	margin-left: 1em;
+	font-size: 1.5em;
+	padding-bottom: 2em;
+	color: #333;
+}
+.footer {
+	position: relative;
+	margin-top: 2em;
+	margin-bottom: 1em;
+	padding: 1em 0 0 0;
+	color: #444;
+	border-top : 1px solid #eee;
+	text-align: center;
+}
