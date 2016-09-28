@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Portfolio Page</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no,">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
 	<link rel="stylesheet" href="css/css.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.1/css/font-awesome.min.css">
 </head>
@@ -13,13 +13,13 @@
 			<a href="#"><img src="img/logo.png" alt="logo"></a>
 			<button class="fa fa-bars" id="nav-bars"></button>
 			<ul id="nav">
-				<li><a href="#top" class="active">ABOUT</a></li>
-				<li><a href="#portfolio">PORTFOLIO</a></li>
-				<li><a href="#contact">CONTACT</a></li>
+				<li><a href="#topTag" class="active">ABOUT</a></li>
+				<li><a href="#portfolioTag">PORTFOLIO</a></li>
+				<li><a href="#contactTag">CONTACT</a></li>
 			</ul>
 		</div>
 	</div>
-	<div class="main">
+	<div class="main" id="topTag">
 		<div class="intro">
 			<img src="img/myself.jpeg" alt="">
 			<div class="intro-text">
@@ -52,7 +52,7 @@
 				</table>
 			</div>
 		</div>
-		<div class="portfolio">
+		<div class="portfolio" id="portfolioTag">
 			<h1>PORTFOLIO</h1>
 			<hr>
 			<ul>
@@ -64,7 +64,7 @@
 				<li><img src="img/placeholder.jpg" alt="portfolio-img"></li>
 			</ul>
 		</div>
-		<div class="contact">
+		<div class="contact" id="contactTag">
 			<h1>CONTACT ME</h1>
 			<hr>
 			<form action="">
@@ -84,7 +84,7 @@ You'll get a response A.S.A.P.
 	<div class="footer">
 	    <div class="wrap">
 		    <ul class="social-icon">
-					<li><a href="https://github.com/yuyanggong"><i class="fa fa-github"></i></a></li>
+					<li><a href="https://github.com/yuyanggong" target='_blank'><i class="fa fa-github"></i></a></li>
 					<li><a href="#"><i class="fa fa-qq"></i></a></li>
 					<li><a href="#"><i class="fa fa-weixin"></i></a></li>
 					<li><a href="#"><i class="fa fa-weibo"></i></a></li>

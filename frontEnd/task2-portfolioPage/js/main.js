@@ -44,4 +44,9 @@
 			else return true;
 		});
 	}
+	window.onresize = function(){
+		heightArr = ['topTag', 'portfolioTag' ,'contactTag'].map(function(v){
+			return document.getElementById(v).offsetTop;
+		});
+	}
 })(window, document);
