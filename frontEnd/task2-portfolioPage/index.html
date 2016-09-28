@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Portfolio Page</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no,">
 	<link rel="stylesheet" href="css/css.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.1/css/font-awesome.min.css">
 </head>
@@ -10,7 +11,8 @@
 	<div class="header">
 		<div class="wrap">
 			<a href="#"><img src="img/logo.png" alt="logo"></a>
-			<ul>
+			<button class="fa fa-bars" id="nav-bars"></button>
+			<ul id="nav">
 				<li><a href="#top" class="active">ABOUT</a></li>
 				<li><a href="#portfolio">PORTFOLIO</a></li>
 				<li><a href="#contact">CONTACT</a></li>
@@ -72,10 +74,10 @@
 				<label for="message">message</label><textarea id="message" rows="5" placeholder="message"></textarea>
 				<button>send</button>
 			</form>
-			<div class="contact-info">Want to get in touch with me? Be it to request more info about myself or my experience, to ask for my résumé or tips on how to solve your sudoku, random questions about the universe and the meaning of life; or even if only for some nice Fika here in stunning Toronto… just feel free to drop me a line anytime.
+			<div class="contact-info">Want to get in touch with me? Be it to request more info about myself or my experience, to ask for my resume or tips on how to solve your sudoku, random questions about the universe and the meaning of life; or even if only for some nice Fika here in stunning Toronto… just feel free to drop me a line anytime.
 You'll get a response A.S.A.P.
 	<p>I promise to reply A.S.A.P.</p>
-				<p>No spam/soliciting pour moi, merci :)</p>
+				<p>I will be glad if you contact with me :)</p>
 			</div>
 		</div>
 	</div>
@@ -91,5 +93,6 @@ You'll get a response A.S.A.P.
 			</div>
 		</div>
 	</div>
+<script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
