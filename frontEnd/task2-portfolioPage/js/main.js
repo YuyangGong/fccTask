@@ -31,7 +31,6 @@
 		    e.preventDefault();
 	}, true);
 	window.onscroll = function(){
-		console.log(1)
 		function changeActive(i) {
 			[].forEach.call(nav.getElementsByTagName('a'), function(v){
 		      	v.className = '';
