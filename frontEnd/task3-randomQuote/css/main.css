@@ -80,24 +80,39 @@ body {
     color: #d8d8d8;
     padding: 30px 40px;
 }
+.main .info {
+    font-size: 1.3em;
+    line-height: 1.35em;
+    text-indent: 2em;
+}
+.main .person {
+    color: #bbb;
+    margin-top: 2em;
+    text-align: right;
+    font-size: .9em;
+    padding-bottom: 1px;
+}
 .btn {
     position: relative;
     margin-top: 40px;
 }
 .btn .share, .btn .newBtn {
     display: inline-block;
-    width: 270px;
+    width: 280px;
     height: 50px;
     border-radius: 20px;
     line-height: 50px;
     box-shadow: 2px 2px 5px 1px #777;
     text-align: center;
-    font-size: 22px;
+    font-size: 18px;
     color: #fff;
     transition: all .3s ease-in-out;
 }
 .btn .share {
     background-color: #5fae60;
+}
+.btn .share i {
+    margin-right: 5px;
 }
 .btn .share:hover {
     color: #5fae60;
