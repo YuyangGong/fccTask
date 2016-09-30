@@ -143,4 +143,7 @@ body {
     .btn .share, .btn .newBtn {
         width: 45%;
     }
+    .main {
+        padding: 8%;
+    }
 }
