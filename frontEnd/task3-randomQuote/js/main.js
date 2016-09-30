@@ -1,7 +1,28 @@
 ;(function(window, document, defined){
-	function setVal(elem, text) {
-		var node = (document.getElementsByClassName(elem) || [])[0];
-		if(node) node.innerHTML = text;
+	var isComplete = true;
+	function setAniVal(elem, text) {
+		var node = (document.getElementsByClassName(elem) || [])[0],
+			isAdd = false,
+			style;
+		if(!node) return false;
+		if(node.timer) clearInterval(node.timer);
+		style = node.style;
+		node.timer = setInterval(function(){
+			if(isAdd) {
+				style.opacity = style.opacity * 1 + 0.05;
+				if(style.opacity == '1') {
+					clearInterval(node.timer);
+					isComplete = true;
+				}
+			}
+			else {
+				style.opacity -= 0.05;
+				if(style.opacity == '0') {
+					isAdd = true;
+					node.innerHTML = text;
+				}
+			}
+		}, 30);
 	}
 	var btn = document.getElementById("getQuote");
 	btn.onclick = function() {
@@ -15,9 +36,11 @@
 		if(ajax) {
 			ajax.onreadystatechange = function() {
 				if(ajax.readyState == 4 && ajax.status == 200) {
+					if(!isComplete) return;
 					var str = JSON.parse(ajax.responseText);
-					setVal('info', str.quote);
-					setVal('person', '—— ' + str.author)
+					setAniVal('info', str.quote);
+					setAniVal('person', '—— ' + str.author);
+					isComplete = false;
 				}
 			};
 			ajax.open("GET", 
