@@ -54,7 +54,6 @@ ul {
 body {
     font-family: "微软雅黑";
     background-color: #eff0e7;
-    min-width: 768px;
 }
 .wrap {
     width: 600px;
@@ -129,4 +128,19 @@ body {
 .btn .newBtn:hover {
     color: #5280a0;
     background-color: #fff;
+}
+
+@media screen and (max-width: 640px) {
+    .wrap {
+      width: 85%;
+    }
+    .main .info {
+        font-size: .85em;
+    }
+    .main .person {
+        font-size:  .7em;
+    }
+    .btn .share, .btn .newBtn {
+        width: 45%;
+    }
 }
