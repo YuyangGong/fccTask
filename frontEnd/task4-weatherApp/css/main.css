@@ -59,14 +59,21 @@ html {
     font-family: "Microsoft Yahei";
 }
 .header {
-    margin: 4% 0 2%;
+    margin: 2% 0 2%;
     font-size: 3rem;
 }
 .inner-num {
     font-size: 2.6rem;
     font-weight: bold;
 }
+.weather-data, .weather-pos {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+}
 .weather-data {
-    font-size: 1.4rem;
-    margin-top: .3rem;
+    margin-top: .5rem;
+}
+.icon {
+    font-size: 5rem;
+    margin-top: .5rem;
 }
