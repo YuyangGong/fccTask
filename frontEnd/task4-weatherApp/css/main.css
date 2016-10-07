@@ -65,7 +65,7 @@ html {
     left: 0;
     bottom: 0;
     right: 0;
-    height: 400px;
+    height: 80%;
 }
 .header {
     margin: 0% 0 3%;
@@ -88,8 +88,29 @@ html {
 }
 
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 769px) {
     html {
-        font-size: 14px;
+        font-size: 12px;
+    }
+    .wrap {
+        height: 70%;
+    }
+    .header {
+        margin: 0% 0 12%;
+        font-size: 4rem;
+    }
+    .weather-num {
+        font-size: 6rem;
+    }
+    .icon {
+        font-size: 10rem;
+        margin-top: 2.1rem;
+    }
+    .weather-data, .weather-pos {
+        font-size: 1.6rem;
+        margin-top: 2rem;
+    }
+    .weather-data {
+        margin-top: 3.5rem;
     }
 }
