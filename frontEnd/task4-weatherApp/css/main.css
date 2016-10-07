@@ -75,6 +75,19 @@ html {
     font-size: 3.5rem;
     font-weight: bold;
 }
+.btn {
+    outline: none;
+    border: none;
+    font-size: 12px;
+    background-color: #d14242;
+    color: #e4e4e4;
+    padding: 3px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: #c14242;
+}
 .icon {
     font-size: 8rem;
     margin-top: .8rem;
@@ -91,9 +104,6 @@ html {
 @media screen and (max-width: 769px) {
     html {
         font-size: 12px;
-    }
-    .wrap {
-        height: 70%;
     }
     .header {
         margin: 0% 0 12%;
