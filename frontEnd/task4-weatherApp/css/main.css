@@ -58,13 +58,26 @@ html {
     text-align: center;
     font-family: "Microsoft Yahei";
 }
+.wrap {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 400px;
+}
 .header {
-    margin: 4% 0 4%;
+    margin: 0% 0 3%;
     font-size: 5rem;
 }
 .weather-num {
     font-size: 3.5rem;
     font-weight: bold;
+}
+.icon {
+    font-size: 8rem;
+    margin-top: .8rem;
 }
 .weather-data, .weather-pos {
     font-size: 1.3rem;
@@ -73,17 +86,10 @@ html {
 .weather-data {
     margin-top: .7rem;
 }
-.icon {
-    font-size: 5rem;
-    margin-top: .8rem;
-}
+
 
 @media screen and (max-width: 800px) {
-    body {
-        font-size: 30px;
-        color: red;
-    }
-    .icon {
-        margin-top: 300px;
+    html {
+        font-size: 14px;
     }
 }
