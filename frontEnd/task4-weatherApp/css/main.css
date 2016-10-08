@@ -84,6 +84,7 @@ html {
     padding: 3px 5px;
     border-radius: 5px;
     cursor: pointer;
+    transition: all .3s linear;
 }
 .btn:hover {
     background-color: #c14242;
