@@ -10,14 +10,5 @@
 	function toFahre(c) {
 		return c*9/5 + 32;
 	}
-	
-	window.onload = function() {
-		function success(position) {
-			val($(".content"), position.coords.latitude + " : " + position.coords.longitude);
-		}
-		function error(errorPosition) {
-			val($(".content"), errorPosition);
-		}
-		navigator.geolocation.getCurrentPosition(success, error);
-	}
 })(window, document);
+//9da9913605019c64e36a16359a592153
