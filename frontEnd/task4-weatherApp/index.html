@@ -4,26 +4,18 @@
 	<meta charset="UTF-8">
 	<title>Weather App</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.1/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 	<div class="wrap">
 		<div class="header">Weather App</div>
 		<div class="main">
-			<div class="weather-num">23°F<button class="btn">to Fahrenheit</button></div>
-			<div class="icon fa fa-adjust"></div>
-			<div class="weather-data">Cloud and sun</div>
-			<div class="weather-pos">JAN 12.10 Pm, NanChan</div>
+			<div class="weather-num"><span class="num">loading...</span><button class="btn" style="display: none;">to Fahrenheit</button></div>
+			<div class="icon"></div>
+			<div class="weather-data">loading...</div>
+			<div class="weather-pos">loading...</div>
 		</div>
 	</div>
-	<div class="content"></div>
 <script src="js/main.js"></script>
-<script type="application/javascript">
-  function getPos(json) {
-    console.log(json);
-  }
-</script>
-<script type="application/javascript" src="http://ip-api.com/json/?callback=getPos"></script>
 </body>
 </html>

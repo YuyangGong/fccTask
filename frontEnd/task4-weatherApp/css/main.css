@@ -79,26 +79,30 @@ html {
     outline: none;
     border: none;
     font-size: 12px;
+    margin-left: 1em;
     background-color: #d14242;
     color: #e4e4e4;
     padding: 3px 5px;
     border-radius: 5px;
     cursor: pointer;
-    transition: all .3s linear;
+    transition: all .2s linear;
 }
 .btn:hover {
-    background-color: #c14242;
+    padding: 10px 20px;
+    font-size: 16px;
 }
 .icon {
-    font-size: 8rem;
-    margin-top: .8rem;
+    margin-top: 1em;
+}
+.icon img{
+    width: 150px;
 }
 .weather-data, .weather-pos {
     font-size: 1.3rem;
     margin-top: 2rem;
 }
 .weather-data {
-    margin-top: .7rem;
+    margin-top: 0;
 }
 
 
