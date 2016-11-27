@@ -84,7 +84,7 @@
 									val($('.weather-pos'), curTime.toString().match(/([a-z]+) \d+ \d+/i)[0] + ', ' + city);
 									$('.btn').style.display = '';
 									img = new Image();
-									img.src = 'http://openweathermap.org/img/w/' + weather.icon + '.png';
+									img.src = 'https://openweathermap.org/img/w/' + weather.icon + '.png';
 									$('.icon').appendChild(img);
 								}
 							}
