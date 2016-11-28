@@ -179,6 +179,8 @@ body {
     overflow: hidden;
     width: 100%;
     box-sizing: border-box;
+    font-size: 18px;
+    margin-bottom: 5%;
 }
 .content > div{
     background-color: #bbb;
@@ -186,4 +188,15 @@ body {
     padding: 1em 2em;
     margin-top: 1em;
     border-radius: .7em;
+}
+.content > div > h3{
+    padding: 0;
+    margin: 0;
+    font-size: 1.5em;
+    margin-bottom: .5em;
+}
+.content > div > h3 > a:hover{
+    color: #5280a0;
+    text-decoration: underline;
+    transition: all .2s ease-in-out;
 }
