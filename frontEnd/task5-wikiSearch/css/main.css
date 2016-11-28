@@ -80,7 +80,7 @@ ul {
 /* main */
 body {
     padding: 15% 8% 0;
-    min-width: 480px;
+    min-width: 360px;
     font-size: 24px;
     font-family: "Microsoft YaHei";
 }
@@ -104,9 +104,6 @@ body {
         font-size: 2em;
     }
 }
-/*.search .title + div {
-    width: 100%;
-}*/
 .search-bar {
     display: block;
     text-align: left;
@@ -196,7 +193,19 @@ body {
     margin-bottom: .5em;
 }
 .content > div > h3 > a:hover{
-    color: #5280a0;
+    color: blue;
     text-decoration: underline;
-    transition: all .2s ease-in-out;
+}
+
+@media screen and (max-width:480px) {
+    body {
+        padding: 25% 0;
+        min-width: 0px;
+    }
+    .search {
+        width: 95%;
+    }
+    .search-content {
+        padding: 0em 0em 3em;
+    }
 }
