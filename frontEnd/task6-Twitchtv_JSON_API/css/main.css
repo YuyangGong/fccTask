@@ -49,3 +49,118 @@ input, select {
 ul {
     list-style: none;
 }
+
+/* main */
+html {
+    font-size: 20px;
+}
+body {
+    padding: 1rem 0;
+    text-align: center;
+    font-family: "Microsoft YaHei";
+}
+.head {
+    margin-bottom: 2rem;
+}
+.head > h1 {
+    font-size: 2.5rem;
+    color: #aaa;
+    margin-bottom: .6rem;
+    text-shadow: #888 2px 2px 1px;
+}
+.head > button {
+    width: 5rem;
+    height: 1.8rem;
+    margin-right: .6rem;
+    background-color: #5fae60;
+    font-size: .8rem;
+    outline: none;
+    border: none;
+    border-radius: 1111px;
+    box-shadow: 2px 2px 5px 1px #777;
+    color: #fff;
+    transition: all .3s ease-in-out; 
+    cursor: pointer;   
+}
+.head > button:hover {
+    background-color: #fff;
+    color: #5fae60;
+}
+.head > button.select {
+    background-color: #5280a0;
+}
+.head > button.select:hover {
+    background-color: #fff;
+    color: #5280a0;
+}
+.section {
+    width: 32rem;
+    padding: 1rem .5rem 1.5rem;
+    margin: 1.2rem auto 0;
+    background-color: #5280a0;
+    border-radius: 1rem;
+}
+.section > img {
+    width: 3.5rem;
+    border-radius: 50%;
+    border: 5px solid #fff;
+}
+.section:hover img {
+    animation: rotate .6s ease-in-out 1;
+}
+@keyframes rotate{
+    0% {-webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);}
+    100% {-webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);}
+}
+.section > a {
+    display: block;
+    font-size: 1.1rem;
+    margin: .8rem 0 .5rem;
+}
+.section > a:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+.section > div {
+    font-size: .8rem;
+}
+.section.offline {
+    padding: .7rem;
+    background-color: #5fae60;
+}
+.section.offline > a {
+    margin: 0 0 .5rem;
+}
+
+@media screen and (max-width:980px) {
+    html {
+        font-size: 18px;
+    }
+    .section {
+        width: 28rem;
+    }
+}
+
+@media screen and (max-width:640px) {
+    html {
+        font-size: 16px;
+    }
+    .section {
+        width: 24rem;
+    }
+}
+
+@media screen and (max-width:480px) {
+    html {
+        font-size: 14px;
+    }
+    .section {
+        width: 18rem;
+    }
+}

@@ -30,9 +30,9 @@
 	});
 
 	window.callback = function(res) {
-		console.log(res);
+		if(res.error) return;
 		var logo = document.createElement('img');
-		var username = document.createElement('div');
+		var username = document.createElement('a');
 		var status = document.createElement('div');
 		var contentBox = document.createElement('div');
 		if(res.stream) {
@@ -42,15 +42,18 @@
 			status.appendChild(document.createTextNode(twitchApi.getGame(res)+':'+twitchApi.getStatus(res)));
 			contentBox.appendChild(username);
 			contentBox.appendChild(status);
-			contentBox.className = 'online';
+			contentBox.className = 'online section';
+			username.href = 'https://www.twitch.tv/' + twitchApi.getUserName(res);
 		} 
 		else {
 			username.appendChild(document.createTextNode(twitchApi.getLinkName(res)));
 			status.appendChild(document.createTextNode('offline'));
 			contentBox.appendChild(username);
 			contentBox.appendChild(status);
-			contentBox.className = 'offline';
+			contentBox.className = 'offline section';
+			username.href = 'https://www.twitch.tv/' + twitchApi.getLinkName(res);
 		}
+		username.target = '_blank';
 		document.body.appendChild(contentBox);
 	}
 })(window, document);
@@ -69,7 +72,12 @@
 	function show(elem) {
 		elem.style.display = '';
 	}
-
+	function changeSelect(elem) {
+		[].forEach.call(btnArr, function(v) {
+			v.className = '';
+			if(v === elem) v.className = 'select';
+		});
+	}
 	allBtn.addEventListener('click', function(e) {
 		[].forEach.call(onElem, function(v) {
 			show(v);
@@ -77,6 +85,7 @@
 		[].forEach.call(offElem, function(v) {
 			show(v);
 		});
+		changeSelect(this);
 	})
 
 	onBtn.addEventListener('click', function(e) {
@@ -86,6 +95,7 @@
 		[].forEach.call(offElem, function(v) {
 			hide(v);
 		});
+		changeSelect(this);
 	})
 
 	offBtn.addEventListener('click', function(e) {
@@ -95,6 +105,7 @@
 		[].forEach.call(offElem, function(v) {
 			show(v);
 		});
+		changeSelect(this);
 	})
 
 })(window, document);
