@@ -34,25 +34,67 @@
 		var logo = document.createElement('img');
 		var username = document.createElement('div');
 		var status = document.createElement('div');
-		var tempFrag = document.createDocumentFragment();
+		var contentBox = document.createElement('div');
 		if(res.stream) {
 			logo.src = twitchApi.getLogo(res);
-			tempFrag.appendChild(logo);
+			contentBox.appendChild(logo);
 			username.appendChild(document.createTextNode(twitchApi.getUserName(res)));
 			status.appendChild(document.createTextNode(twitchApi.getGame(res)+':'+twitchApi.getStatus(res)));
-			tempFrag.appendChild(username);
-			tempFrag.appendChild(status);
+			contentBox.appendChild(username);
+			contentBox.appendChild(status);
+			contentBox.className = 'online';
 		} 
 		else {
 			username.appendChild(document.createTextNode(twitchApi.getLinkName(res)));
 			status.appendChild(document.createTextNode('offline'));
-			tempFrag.appendChild(username);
-			tempFrag.appendChild(status);
+			contentBox.appendChild(username);
+			contentBox.appendChild(status);
+			contentBox.className = 'offline';
 		}
-		document.body.appendChild(tempFrag);
+		document.body.appendChild(contentBox);
 	}
 })(window, document);
 
 ;(function(window, document, undefined) {
-	
+	var onElem = document.getElementsByClassName('online'),
+	    offElem = document.getElementsByClassName('offline'),
+	    btnArr = document.getElementsByTagName('button'),
+	    allBtn = btnArr[0],
+	    onBtn = btnArr[1],
+	    offBtn = btnArr[2];
+
+	function hide(elem) {
+		elem.style.display = 'none';
+	}
+	function show(elem) {
+		elem.style.display = '';
+	}
+
+	allBtn.addEventListener('click', function(e) {
+		[].forEach.call(onElem, function(v) {
+			show(v);
+		});
+		[].forEach.call(offElem, function(v) {
+			show(v);
+		});
+	})
+
+	onBtn.addEventListener('click', function(e) {
+		[].forEach.call(onElem, function(v) {
+			show(v);
+		});
+		[].forEach.call(offElem, function(v) {
+			hide(v);
+		});
+	})
+
+	offBtn.addEventListener('click', function(e) {
+		[].forEach.call(onElem, function(v) {
+			hide(v);
+		});
+		[].forEach.call(offElem, function(v) {
+			show(v);
+		});
+	})
+
 })(window, document);
