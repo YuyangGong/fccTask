@@ -9,7 +9,7 @@
     	cur: 0,
     	process: [],
     	updateView: function() {
-    		content.innerHTML = this.process.length ? (this.process.join('') + (this.isFinal? '='+this.res : '')) : 0;
+    		content.innerHTML = this.process.length ? (this.process.join(' ') + (this.isFinal? ' =' : '')) : 0;
     		res.innerHTML = this.isFinal ? this.res : this.cur;
     	},
     	getRes: function() {
@@ -107,9 +107,17 @@
     		}
     	},
     	'+/-' : function() {
-    		var sObj = status;
-    			arr = sObj.process;
-    		if(/[1-9]/.test(sObj.cur)) {
+    		var sObj = status,
+    			arr = sObj.process,
+    			num;
+    		if(sObj.isFinal) {
+    			num = sObj.res;
+    			num = num.toString().indexOf('-') > -1 ? num.slice(1) : '-' + num;
+    			this['AC']();
+    			sObj.cur = num;
+    			sObj.process.push(num);
+    		}
+    		else if(/[1-9]/.test(sObj.cur)) {
     			sObj.cur = sObj.cur[0] === '-' ? sObj.cur.slice(1) : '-' + sObj.cur;
     			arr[arr.length - 1] = sObj.cur;
     		}
