@@ -21,7 +21,7 @@
     		for( ; i < len; i+=2 ) {
     			res = calcu[calcuArr[i]](res, +calcuArr[i + 1]);
     		}
-    		return (+res.toFixed(9)).toString().slice(0, 10);
+    		return (+res.toFixed(9)).toString().slice(0, 9);
     	}
     };
 
@@ -53,7 +53,7 @@
     	'=' : function() {
     		var sObj = status;
     			arr = sObj.process;
-    		if(arr.length || /^\d+$/.test(arr.slice(-1)[0])) {
+    		if(arr.length && /^\d/.test(arr.slice(-1)[0])) {
     			sObj.res = sObj.getRes();
     			sObj.isFinal = true;
     		}
