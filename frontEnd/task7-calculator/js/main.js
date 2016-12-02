@@ -21,7 +21,7 @@
     		for( ; i < len; i+=2 ) {
     			res = calcu[calcuArr[i]](res, +calcuArr[i + 1]);
     		}
-    		return +res.toFixed(9);
+    		return (+res.toFixed(9)).toString().slice(0, 10);
     	}
     };
 

@@ -70,29 +70,62 @@ body {
     bottom: 0;
     margin: auto;
     width: 13.5rem;
-    height: 20rem;
+    height: 21.5rem;
     box-shadow: 1px 1px 126px 5px rgba(0, 0, 0, .3);
 }
 .header {
+    position: relative;
     height: 6.5rem;
     background-color: #515659;
+    box-shadow: inset 0px 3px 132px 1px rgba(0, 0, 0, .2);
 }
 .header .content, .header .res {
     text-align: right;
 }
 .header .content {
-    font-size: .8rem;
-    color: #b1b2b6;
-    padding-top: 1.2rem;
-    padding-right: 1.2rem;
+    margin-top: .6rem;
+    margin-right: .8rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #7e8483;
+    font-size: .7rem;
 }
 .header .res {
-    font-size: 3rem;
-    color: #151515;
-    padding-right: 1.5rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: .4rem;
+    margin-right: .7rem;
+    font-size: 2.5rem;
+    color: #faffff;
 }
 table {
     width: 13.5rem;
     height: 13.5rem;
-    background: linear-gradient(135deg, #595f71 0%, #4f5566 100%);
+    background: #515659;
+    box-shadow: inset 0px 0px 132px 1px rgba(255, 255, 255, .1);
+}
+table  button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    width: 3.35rem;
+    height: 2.5rem;
+    color: #ffffff;
+    border-right: 2px solid #676a68;
+    border-bottom: 2px solid #676a68;
+    transition: all .3s ease-in-out;
+}
+table  button:hover {
+    opacity: .8;
+}
+table  button.num {
+    background-color: #b3b5b4;
+}
+table tr:last-child button {
+    width: 13.5rem;
+    background-color: #e46e6c;
+    border: none;
+    font-size: 1.6rem;
 }
