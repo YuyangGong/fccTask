@@ -50,3 +50,29 @@ ul {
     list-style: none;
 }
 /* main */
+html {
+    width: 100%;
+    height: 100%;
+    font-family: 'Microsoft YaHei';
+    background-color: #344050;
+    color: #fd6d6d;
+    font-size: 20px;
+}
+body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+.wrap {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 16rem;
+    height: 24rem;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 0px 66px 1px rgba(0, 0, 0, .2);
+}
