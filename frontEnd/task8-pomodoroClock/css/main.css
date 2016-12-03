@@ -116,10 +116,14 @@ body {
 .wrap .session {
     float: right;
 }
-
+.wrap .content {
+    text-align: center;
+    margin-top: 7.5rem;
+    font-weight: 700;
+}
 .wrap .content .btn {
     position: relative;
-    font-size: 15px;
+    font-size: 1.75rem;
     color: #fc6e6c;
     width: 2.3em;
     height: 2.3em;
@@ -137,19 +141,19 @@ body {
     font-size: 1em;
     position: absolute;
     top: .23em;
-    left: .42em;
+    left: .45em;
     width: 0px;
     height: 0px;
     background-color: currentcolor;
-    border-left: 1em solid currentcolor;
+    border-left: .95em solid currentcolor;
     border-top: .6em solid #fff;
     border-bottom: .6em solid #fff;
     border-radius: 3px;
 }
 .wrap .content .btn2:before, .wrap .content .btn2:after{
     content: '';
-    top: .25rem;
-    left: .25rem;
+    top: .3em;
+    left: .4em;
     font-size: 1em;
     position: absolute;
     width: .3em;
@@ -158,5 +162,14 @@ body {
     border-radius: 1111px;
 }
 .wrap .content .btn2:after {
-    left: .75rem;
+    left: .95em;
+
+}
+.wrap .content .type {
+    font-size: 2rem;
+    margin-top: 1.2rem;
+}
+.wrap .content .time {
+    font-size: 1.5rem;
+    margin-top: .6rem;
 }

@@ -8,6 +8,7 @@
 		breakElem = document.getElementsByClassName('break')[0].querySelector('.timer'),
 		sessionElem = document.getElementsByClassName('session')[0].querySelector('.timer'),
 		remain = document.getElementsByClassName('time')[0],
+		type = document.getElementsByClassName('type')[0],
 		statusBtn = document.getElementsByClassName('btn')[0];
 	
 	function getClock(time) {
@@ -24,7 +25,8 @@
 		updateView: function() {
 			breakElem.innerHTML = this.break/60;
 			sessionElem.innerHTML = this.session/60;
-			remain.innerHTML = (this.isBreak? 'break' : 'session') + '~' + getClock(this.remain);
+			type.innerHTML = this.isBreak? 'break' : 'session'
+			remain.innerHTML = getClock(this.remain);
 		},
 		pause: function() {
 			clearInterval(this.timer);
