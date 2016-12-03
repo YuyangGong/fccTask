@@ -15,7 +15,7 @@ body {
 }
 
 :focus {
-	outline: 1;
+    outline: 1;
 }
 
 a {
@@ -58,6 +58,11 @@ html {
     color: #fd6d6d;
     font-size: 20px;
 }
+@media screen and (max-width:480px) {
+    html {
+        font-size: 16px;
+    }
+}
 body {
     position: relative;
     height: 100%;
@@ -86,7 +91,7 @@ body {
 }
 .wrap .break, .wrap .session {
     text-align: center;
-    width: 6rem;
+    width: 6.5rem;
     color: #344050;
     font-size: 1.5rem;
     vertical-align: middle;
