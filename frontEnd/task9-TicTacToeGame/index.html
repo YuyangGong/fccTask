@@ -7,7 +7,41 @@
 	<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-
+<div class="game">
+	<div class="header">
+		<div class="step1">
+			player number: 
+			<label><input id="one" type="radio" name="number" value="one">one</label>
+			<label><input id="two" type="radio" name="number" value="two">two</label>
+		</div>
+		<div class="step2">
+			chose symbol: 
+			<label><input id="O-symbol" type="radio" name="symbol" value="o">O</label>
+			<label><input id="X-symbol" type="radio" name="symbol" value="x">X</label>
+		</div>
+	<button class="start-btn">start</button>
+	<button class="reset-btn">reset</button>
+	</div>
+	<div class="content">
+		<table>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+</div>
 <script src="js/main.js"></script>
 </body>
 </html>

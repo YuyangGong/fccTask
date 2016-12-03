@@ -50,3 +50,8 @@ ul {
     list-style: none;
 }
 /* main */
+table td {
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid red;
+}
