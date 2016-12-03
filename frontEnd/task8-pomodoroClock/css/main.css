@@ -70,9 +70,93 @@ body {
     left: 0;
     right: 0;
     margin: auto;
+    box-sizing: border-box;
     width: 16rem;
     height: 24rem;
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0px 0px 66px 1px rgba(0, 0, 0, .2);
+    padding: 2rem 1.5rem;
+}
+.wrap button {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+}
+.wrap .break, .wrap .session {
+    text-align: center;
+    width: 6rem;
+    color: #344050;
+    font-size: 1.5rem;
+    vertical-align: middle;
+}
+.wrap .sub, .wrap .add {
+    font-size: 1.6rem;
+    padding: .1rem .6rem;
+    font-weight: 900;
+    cursor: pointer;
+    color: #fc6e6d;
+    transition: all .3s ease-in-out;
+}
+.wrap .sub:hover, .wrap .add:hover {
+    color: red;
+}
+.wrap .break .title, .wrap .session .title {
+    font-size: 1.1rem;
+    opacity: .8;
+    margin-bottom: .2rem;
+}
+.wrap .timer {
+    margin-left: .1rem;
+}
+.wrap .break {
+    float: left;
+}
+.wrap .session {
+    float: right;
+}
+
+.wrap .content .btn {
+    position: relative;
+    font-size: 15px;
+    color: #fc6e6c;
+    width: 2.3em;
+    height: 2.3em;
+    border-radius: 50%;
+    background-color: #fff;
+    border: .37em solid currentcolor;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+.wrap .content .btn:hover {
+    color: red;
+}
+.wrap .content .btn1:before {
+    content: '';
+    font-size: 1em;
+    position: absolute;
+    top: .23em;
+    left: .42em;
+    width: 0px;
+    height: 0px;
+    background-color: currentcolor;
+    border-left: 1em solid currentcolor;
+    border-top: .6em solid #fff;
+    border-bottom: .6em solid #fff;
+    border-radius: 3px;
+}
+.wrap .content .btn2:before, .wrap .content .btn2:after{
+    content: '';
+    top: .25rem;
+    left: .25rem;
+    font-size: 1em;
+    position: absolute;
+    width: .3em;
+    height: 1.0em;
+    background-color: currentcolor;
+    border-radius: 1111px;
+}
+.wrap .content .btn2:after {
+    left: .75rem;
 }

@@ -27,12 +27,10 @@
 			remain.innerHTML = (this.isBreak? 'break' : 'session') + '~' + getClock(this.remain);
 		},
 		pause: function() {
-			statusBtn.innerHTML = 'start';
 			clearInterval(this.timer);
 			this.isPause = true;
 		},
 		start: function() {
-			statusBtn.innerHTML = 'stop';
 			this.isPause = false;
 			var lastTime = new Date().valueOf(),
 				curTime; 
@@ -91,8 +89,12 @@
     statusBtn.addEventListener('click', function() {
     	if(view.isPause) {
     		view.start();
+    		this.className = this.className.replace(/btn1/, 'btn2');
     	}
-    	else view.pause();
+    	else {
+    		view.pause();
+    		this.className = this.className.replace(/btn2/, 'btn1');
+    	}
     });
 
 })(window, document);
