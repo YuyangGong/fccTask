@@ -4,7 +4,8 @@
 		table = document.getElementsByTagName('table')[0],
 		tableTd = table.getElementsByTagName('td'),
 		playerNum = document.getElementById('one'),
-		symbol = document.getElementById('O-symbol');
+		symbol = document.getElementById('O-symbol'),
+		res = document.querySelector('.res');
 
 	var view = {
 		start: false,
@@ -28,12 +29,14 @@
 			viewObj.chessboard = '000000000'.split('');
 			viewObj.start = false;
 			this.updateView();
+			res.innerHTML = '';
 		},
 		start: function() {
 			var viewObj = view,
 				isTwoPlayer,
 				isOSymbol;
 			if(viewObj.start) return;
+			this.reset();
 			viewObj.start = true;
 			isOnePlayer = playerNum.checked;
 			isOSymbol = symbol.checked;
@@ -44,6 +47,7 @@
 		go: function(target) {
 			var viewObj = view,
 				index = [].indexOf.call(tableTd, target), computerIndex, winner;
+			if(!viewObj.start) return;
 			if(viewObj.curPlayer === 'one') {
 				viewObj.curPlayer = 'two';
 				viewObj.chessboard[index] = viewObj.symbol === 'O' ? 'O' : 'X';
@@ -56,8 +60,10 @@
 			this.updateView();
 			winner = judge.isEnd();
     			if(winner) {
-    				alert(winner);
-    				controller.reset();
+    				viewObj.start = false;
+    				res.innerHTML = "game over! " +
+    								(winner === 0 ? 'Draw!' : winner === 1 ? 'Winner is Player1!' : 'Winner is '+(viewObj.playerNum=='one'? 'Computer':'Player2')) + 
+    								". You can click 'reset' button to clear this chessboard then click 'start' button for playing again!";
     		}
 		}
 	}
@@ -108,12 +114,12 @@
 				str = board.join('').replace(/(.{3})/g, '$1-'),
 				resIndex = [];
 			if(/XXX|X..X..X|X...X...X|X....X....X/.test(str)) {
-				return 'WINNER : Player' + (viewObj.symbol === 'X' ? 1 : 2); 
+				return viewObj.symbol === 'X' ? 1 : 2; 
 			}
 			else if(/OOO|O..O..O|O...O...O|O....O....O/.test(str)) {
-				return 'WINNER : Player' + (viewObj.symbol === 'O' ? 1 : 2);
+				return viewObj.symbol === 'O' ? 1 : 2;
 			} 
-			else if(str.indexOf('0') === -1) return 'draw!';
+			else if(str.indexOf('0') === -1) return 0;
 		}
 	}
 
@@ -134,7 +140,7 @@
  	});
 
  	resetBtn.addEventListener('click', function(e) {
- 		if(view.start) controller.reset();
+ 		controller.reset();
  	});
 
 })(window, document);
