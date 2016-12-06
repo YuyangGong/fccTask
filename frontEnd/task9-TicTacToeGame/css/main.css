@@ -50,8 +50,80 @@ ul {
     list-style: none;
 }
 /* main */
+
+html {
+    height: 100%;
+    font-size: 20px;
+    font-family: 'Microsoft YaHei';
+}
+body {
+    height: 100%;
+    position: relative;
+    background: linear-gradient(45deg, #bb469d 0%, #bd63ac 10%, #c58abd 20%, #d2aac7 30%, #cbbdc2 40%, #cbcac7 50%, #c1cec7 60%, #afe4d5 70%, #8dddd1 80%, #6ad3ce 90%, #50c8c9 100%);
+}
+.game {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 25rem;
+    height: 25rem;
+    text-align: center;
+    overflow: hidden;
+}
+.header {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #fff;
+}
+
+.header > div:first-child {
+    margin-bottom: .5rem;
+}
+.header button {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    color: #fff;
+    font-size: .8rem;
+    border: none;
+    outline: none;
+    background-color: #eb4cc3;
+    opacity: .7;
+    width: 5rem;
+    height: 1.6rem;
+    box-shadow: 1px 1px 5rem 0 rgba(0,0,0,0.2);
+    border-radius: 1111px;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+.header button:hover {
+    background-color: #fff;
+    color: #eb4cc3;
+}
+table {
+    display: inline-block;
+    margin: 2rem auto 0;
+    border: 1rem solid rgba(256, 256, 256, .2);
+}
 table td {
-    width: 2rem;
-    height: 2rem;
-    border: 1px solid red;
+    vertical-align: middle;
+    width: 4rem;
+    height: 4rem;
+    border-bottom: 1rem solid rgba(256, 256, 256, .2);
+    color: #fff;
+    font-weight: 900;
+    font-size: 1.6rem;
+    opacity: .6;
+}
+@media screen and (max-width: 760px) {
+    html {
+        font-size: 12px;
+    }
+    .header {
+        font-size: 1rem;
+        font-weight: 900;
+        color: #fff;
+    }
 }
