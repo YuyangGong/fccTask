@@ -101,7 +101,7 @@
 			if(board[mid[i]] === '0') return mid[i];
 		return null;
 	} 
-
+//...
 	var judge = {
 		isEnd: function() {
 			var viewObj = view,
