@@ -59,7 +59,8 @@
 			}
 			this.updateView();
 			winner = judge.isEnd();
-    			if(winner) {
+			console.log(winner);
+    			if(winner !== undefined) {
     				viewObj.start = false;
     				res.innerHTML = "game over! " +
     								(winner === 0 ? 'Draw!' : winner === 1 ? 'Winner is Player1!' : 'Winner is '+(viewObj.playerNum=='one'? 'Computer':'Player2')) + 
