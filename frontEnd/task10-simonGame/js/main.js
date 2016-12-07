@@ -56,7 +56,7 @@
                 }
                 operate.showBtn(s.btnSeries[cur]);
                 cur++;
-            }, 2000);    
+            }, 1000);    
         },
         showBtn: function(n) {
             var len = btn.length, i;
@@ -86,19 +86,21 @@
             if(s.isShowOn || !s.isStart) return;
             index = [].indexOf.call(btn, target);
             operateObj.showBtn(index);
-            if(index !== s.btnSeries[s.playerCount]) {
-                alert('lose! try again!');
-                s.playerCount = 0;
-                if(s.isStrict) operateObj.reset();
-                else operateObj.showBtnSeries(true);
-            }
-            else {
-                s.playerCount++;
-                if(s.playerCount === s.btnSeries.length) {
-                    operateObj.showBtnSeries();
-                    if(s.count === 5) operateObj.win();
+            setTimeout(function(){
+                if(index !== s.btnSeries[s.playerCount]) {
+                    alert('lose! try again!');
+                    s.playerCount = 0;
+                    if(status.isStrict) operateObj.reset();
+                    else operateObj.showBtnSeries(true);
                 }
-            }
+                else {
+                    s.playerCount++;
+                    if(s.playerCount === s.btnSeries.length) {
+                        operateObj.showBtnSeries();
+                        if(s.count === 5) operateObj.win();
+                    }
+                }
+            }, 400)
         }
     });
     startBtn.addEventListener('click', function(e) {
@@ -109,7 +111,7 @@
     });
     strictBtn.addEventListener('click', function(e) {
         var style = strictBtn.style;
-        status.strict = !status.strict;
+        status.isStrict = !status.isStrict;
         style.backgroundColor = style.backgroundColor === 'red' ? 'green' : 'red';
     });
 })(window, document);
