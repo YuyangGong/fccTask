@@ -10,6 +10,7 @@
         isStrict: false,
         isStart: false,
         count: 0,
+        playerCount: 0,
         isShowOn: false,
         btnSeries: [],
         timer: null
@@ -26,44 +27,66 @@
         },
         reset: function() {
             var s = status;
-            if(!s.isStart) return;
             clearInterval(s.timer);
+            operate.showBtn();
             countShow.innerHTML = '0';
             s.count = 0;
             s.isStart = false;
             s.isShow = false,
             s.btnSeries = [];
+            s.playerCount = 0;
         },
-        showBtnSeries: function() {
+        showBtnSeries: function(again) {
             var s = status,
                 cur = 0;
             s.isShowOn = true;
             s.timer = setInterval(function(){
                 if(cur === s.btnSeries.length) {
+                    clearInterval(s.timer);
+                    s.isShowOn = false;
+                    if(again) return;
                     var mid = Math.floor(Math.random() * 4);
                     s.btnSeries.push(mid);
-                    operate.clickBtn(mid);
-                    clearInterval(s.timer);
+                    operate.showBtn(mid);
                     return;
                 }
-                operate.clickBtn(cur);
+                operate.showBtn(cur);
                 cur++;
             }, 1000);    
         },
-        clickBtn: function(n) {
+        showBtn: function(n) {
             var len = btn.length, i;
             for(i = 0; i < len; i++) {
                 btn[i].style.opacity = '.5';
             }
-            btn[n].style.opacity = '1';
+            if(n !== undefined)btn[n].style.opacity = '1';
+        },
+        win: function() {
+            alert('you win!');
+            this.reset();
         }
     }
 
     board.addEventListener('click', function(e) {
         e = e || window.event;
-        var target = e.target || e.srcElement;
+        var target = e.target || e.srcElement,
+            s = status,
+            operateObj = operate,
+            index;
         if(target.nodeName.toLowerCase() === 'button') {
-
+            if(s.isShowOn || !s.isStart) return;
+            index = btn.indexOf(target);
+            operateObj.showBtn(index);
+            if(index !== s.seriesBtn[s.playerCount]) {
+                alert('lose! try again!');
+                s.playerCount = 0;
+                if(s.isStrict) operateObj.reset();
+                else operateObj.showBtnSeries(true);
+            }
+            else {
+                s.playerCount++;
+                if(s.playerCount === s.btnSeries.length) operateObj.showBtnSeries();
+            }
         }
     });
     startBtn.addEventListener('click', function(e) {
