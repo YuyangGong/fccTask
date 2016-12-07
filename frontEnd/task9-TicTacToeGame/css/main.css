@@ -129,7 +129,7 @@ table tr td:first-child {
 .game .res {
     font-size: .8rem;
     opacity: .5;
-    text-align: left;
+    text-align: justify;
     margin-top: .5rem;
 }
 @media screen and (max-width: 760px) {
