@@ -18,11 +18,12 @@
 
     var operate = {
         rend: function() {
-            coutnShow.innerHTML = status.count;
+            countShow.innerHTML = status.count;
         },
         start: function() {
             var s = status;
             if(s.isStart) return;
+            s.isStart = true;
             this.showBtnSeries();
         },
         reset: function() {
@@ -40,6 +41,8 @@
             var s = status,
                 cur = 0;
             s.isShowOn = true;
+            s.playerCount = 0;
+            this.rend();
             s.timer = setInterval(function(){
                 if(cur === s.btnSeries.length) {
                     clearInterval(s.timer);
@@ -48,18 +51,24 @@
                     var mid = Math.floor(Math.random() * 4);
                     s.btnSeries.push(mid);
                     operate.showBtn(mid);
+                    s.count++;
                     return;
                 }
-                operate.showBtn(cur);
+                operate.showBtn(s.btnSeries[cur]);
                 cur++;
-            }, 1000);    
+            }, 2000);    
         },
         showBtn: function(n) {
             var len = btn.length, i;
             for(i = 0; i < len; i++) {
-                btn[i].style.opacity = '.5';
+                btn[i].style.backgroundColor = 'green';
             }
-            if(n !== undefined)btn[n].style.opacity = '1';
+            if(n !== undefined) {
+                btn[n].style.backgroundColor = 'red';
+                setTimeout(function() {
+                  btn[n].style.backgroundColor = 'green';
+                } , 400); 
+            }
         },
         win: function() {
             alert('you win!');
@@ -75,9 +84,9 @@
             index;
         if(target.nodeName.toLowerCase() === 'button') {
             if(s.isShowOn || !s.isStart) return;
-            index = btn.indexOf(target);
+            index = [].indexOf.call(btn, target);
             operateObj.showBtn(index);
-            if(index !== s.seriesBtn[s.playerCount]) {
+            if(index !== s.btnSeries[s.playerCount]) {
                 alert('lose! try again!');
                 s.playerCount = 0;
                 if(s.isStrict) operateObj.reset();
@@ -85,7 +94,10 @@
             }
             else {
                 s.playerCount++;
-                if(s.playerCount === s.btnSeries.length) operateObj.showBtnSeries();
+                if(s.playerCount === s.btnSeries.length) {
+                    operateObj.showBtnSeries();
+                    if(s.count === 5) operateObj.win();
+                }
             }
         }
     });
