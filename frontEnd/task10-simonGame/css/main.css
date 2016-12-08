@@ -59,6 +59,7 @@ html {
     background-color: #0a1025;
     font-size: 20px;
     height: 100%;
+    font-family: 'Microsoft YaHei';
 }
 body {
     position: relative;
@@ -103,6 +104,55 @@ body {
     background-color: #4d993a;
     margin-left: .45rem;
 }
-.setter, .res {
-    color: #fff;
+.setter {
+    margin-top: 1rem;
+    color: #aaa;
+    font-weight: 900;
+}
+.strict { 
+    margin-left: .5rem;
+    font-size: .7rem;
+    padding: .2rem 0;
+    width: 4rem;
+    border-radius: 10px;
+    box-shadow: 1px 1px 50px 5px rgba(0, 0, 0, .1);
+    cursor: pointer;
+}
+.start, .reset {
+    margin-top: .8rem;
+    width: 4rem;
+    height: 1.8rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    color: #0a1025;
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+}
+.start:hover, .reset:hover {
+    background-color: #fff;
+}
+.start {
+    margin-right: 1rem;
+    background-color: #4d993a;
+}
+.reset {
+    background-color: #f0b40c;
+}
+.final {
+    font-size: 1.5rem;
+    margin-top: .6rem;
+    color: #aaa;
+    font-weight: 900;
+}
+.warn {
+    margin-top: .5rem;
+    font-size: .8rem;
+}
+@media screen and (max-width: 760px) {
+    html {
+        font-size: 18px;
+    }
+    .game {
+        width: 16rem;
+    }
 }
