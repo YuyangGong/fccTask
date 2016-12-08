@@ -49,8 +49,60 @@ input, select {
 ul {
     list-style: none;
 }
-/* main */
 button {
+    background-color: transparent;
+    outline: none;
+    border: none;   
+}
+/* main */
+html {
+    background-color: #0a1025;
+    font-size: 20px;
+    height: 100%;
+}
+body {
+    position: relative;
+    height: 100%;
+}
+.game {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 18rem;
+    height: 25rem;
+    text-align: center;
+}
+
+.btn {
     transition: all .4s ease-in-out;
-    background-color: green;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    box-shadow: 1px 1px 50px 5px rgba(0, 0, 0, .1);
+}
+.strict {
+    transition: all .4s ease-in-out;
+}
+.btn1 {
+    background-color: #f0b40c;
+    margin-bottom: .9rem;
+    margin-right: .45rem;
+}
+.btn2 {
+    background-color: #e02431;
+    margin-left: .45rem;
+}
+.btn3 {
+    background-color: #0c6af0;
+    margin-right: .45rem;
+}
+.btn4 {
+    background-color: #4d993a;
+    margin-left: .45rem;
+}
+.setter, .res {
+    color: #fff;
 }

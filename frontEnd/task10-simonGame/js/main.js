@@ -4,7 +4,8 @@
         startBtn = document.querySelector('.start'),
         resetBtn = document.querySelector('.reset'),
         strictBtn = document.querySelector('.strict'),
-        countShow = document.querySelector('.res');
+        countShow = document.querySelector('.res'),
+        audio = document.getElementsByTagName('audio');
 
     var status = {
         isStrict: false,
@@ -51,10 +52,12 @@
                     var mid = Math.floor(Math.random() * 4);
                     s.btnSeries.push(mid);
                     operate.showBtn(mid);
+                    audio[1].play();
                     s.count++;
                     return;
                 }
                 operate.showBtn(s.btnSeries[cur]);
+                audio[0].play();
                 cur++;
             }, 1000);    
         },
@@ -86,8 +89,10 @@
             if(s.isShowOn || !s.isStart) return;
             index = [].indexOf.call(btn, target);
             operateObj.showBtn(index);
+            audio[2].play();
             setTimeout(function(){
                 if(index !== s.btnSeries[s.playerCount]) {
+                    audio[3].play();
                     alert('lose! try again!');
                     s.playerCount = 0;
                     if(status.isStrict) operateObj.reset();
@@ -96,6 +101,7 @@
                 else {
                     s.playerCount++;
                     if(s.playerCount === s.btnSeries.length) {
+                        audio[2].play();
                         operateObj.showBtnSeries();
                         if(s.count === 5) operateObj.win();
                     }
