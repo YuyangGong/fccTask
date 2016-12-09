@@ -1,0 +1,22 @@
+html {
+    font-size: 14px;
+    font-family: 'Microsoft YaHei';
+    margin: 0;
+    padding: 0;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+textarea {
+    margin: 1.1rem 1.8rem;
+    padding: .4rem .6rem;
+    float: left;
+    width: 35rem;
+    height: 40rem;
+    font-size:1rem;
+    resize: none;
+}
+#content {
+    padding: 1rem;
+}
