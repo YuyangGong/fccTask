@@ -38,14 +38,15 @@
 
     function generateIterm(obj, order) {
         return '<tr><td>' + order + 
-               '</td><a href=https://www.freecodecamp.com/' + obj.username + 
-               '><td><img src=' + obj.img + '></td><td>' + obj.username + 
-               '</td></a><td>' + obj.recent + '</td><td>' + 
+               '</td><td><img src=' + obj.img + '></td><td><a target="_blank" href="https://www.freecodecamp.com/' + 
+               obj.username + '">' + 
+               obj.username + '</a>' +
+               '</td><td>' + obj.recent + '</td><td>' + 
                obj.alltime +'</td><tr>';
     }
 
     function generateTable(arr) {
-        var res = '<caption>Leaderboard</caption><tr><th>Order</th><th>image</th><th>Name</th><th>Points in past 30 days</th><th>All time points</th></tr>',
+        var res = '<caption>Top 100 Campers in FFC</caption><tr><th>Order</th><th>image</th><th>Name</th><th>current</th><th>All time</th></tr>',
             i;
         for( i = 0; i < 100; i++ ) {
             res += generateIterm(arr[i], i + 1);
@@ -74,12 +75,12 @@
 
     btn.addEventListener('click', function(e) {
         if(!(completeFlag[0] && completeFlag[1])) return;
-        if(btn.innerHTML === 'sort with past 30 days') {
-            btn.innerHTML = 'sort with all time';
+        if(btn.innerHTML === 'Current') {
+            btn.innerHTML = 'All';
             table.innerHTML = allTimeCamper;
         }
         else {
-            btn.innerHTML = 'sort with past 30 days';
+            btn.innerHTML = 'Current';
             table.innerHTML = monthTimeCamper;
         }
     })
