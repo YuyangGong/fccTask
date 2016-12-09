@@ -55,3 +55,6 @@ button {
     border: none;   
 }
 /* main */
+td {
+    border: 1px solid red;
+}
