@@ -76,3 +76,10 @@ button {
     height: 50%;
     background-color: red;
 }
+.header {
+    cursor: pointer;
+}
+.header:hover {
+    text-decoration: underline;
+    color: blue;
+}

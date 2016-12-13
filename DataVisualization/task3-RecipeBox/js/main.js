@@ -28,11 +28,11 @@
             if(isAdd) {
                 childNode = document.createElement('div');
                 childNode.className = 'page';
-                childNode.innerHTML = '<div class="header">header</div><div class="title">'+ last.header 
+                childNode.innerHTML = '<div class="header">header</div><div class="wrap"><div class="title">'+ last.header 
                                       + '</div><div class="list">' + last.list.reduce(function(s, v){
                                             return s + '<div class="param">' + v + '</div>';
                                       }, '') 
-                                      + '</div><button class="deleteBtn">Delete</button><button class="editBtn">edit</button>';
+                                      + '</div><button class="deleteBtn">Delete</button><button class="editBtn">edit</button></div>';
                 container.appendChild(childNode);
             }
         },
@@ -90,8 +90,16 @@
         viewModel.list.push(Recipe(input[0].value, input[1].value));
         controller.render(true);
     });
+    
     editBtn[1].addEventListener('click', controller.btnCacel);
 
-    
+    container.addEventListener('click', function(e) {
+        e = e || window.event;
+        var target = e.target || e.srcElement;
+        if(target.className === 'header') {
+            target.nextSibling.style.display = target.nextSibling.style.display === 'none' ? 'block': 'none';
+        }
+    })
+
 })(window, document);
 
