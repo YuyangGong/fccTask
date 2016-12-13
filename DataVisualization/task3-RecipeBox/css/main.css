@@ -55,3 +55,24 @@ button {
     border: none;   
 }
 /* main */
+.page {
+    border: 1px solid red;
+}
+.param {
+    border-bottom: 1px solid red;
+    opacity: .6;
+}
+
+#editBox {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 50%;
+    min-width: 360px;
+    height: 50%;
+    background-color: red;
+}
