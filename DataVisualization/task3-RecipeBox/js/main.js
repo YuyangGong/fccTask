@@ -12,7 +12,7 @@
             }).split(',');
         },
         getInnerString: function(node) {
-            return '<div class="header">header</div><div class="wrap"><div class="title">'+ node.header 
+            return '<div class="header">Recipe</div><div class="wrap"><div class="title">'+ node.header 
                   + '</div><div class="list">' + node.list.reduce(function(s, v){
                         return s + '<div class="param">' + v + '</div>';
                   }, '') 
@@ -39,6 +39,7 @@
                 childNode.innerHTML = helper.getInnerString(last);
                 container.appendChild(childNode);
             }
+            this.saveLocalStorage();
         },
         showEditBox: function(isAdd, index) {
             if(isAdd) {
@@ -71,7 +72,9 @@
             this.btnCacel();
         },
         saveLocalStorage: function() {
-
+            localStorage["yuyang_cache"] = JSON.stringify(viewModel.list.reduce(function(s, v) {
+                return s.concat({header: v.header, list: v.list});
+            }, []));
         },
         init: function() {
             viewModel.list.push(Recipe('Recipe one', 'test1,test2,test3,test4'), Recipe('Recipe two', 'test1,test2,test3,test4'));
@@ -111,6 +114,7 @@
                 recipe = viewModel.list[index];
             recipe.edit(inputs[0].value, inputs[1].value);
             document.querySelectorAll('.page')[index].innerHTML = helper.getInnerString(recipe);
+            controller.saveLocalStorage();
         }
     });
     
@@ -129,6 +133,7 @@
             page = target.parentNode.parentNode;
             list.splice([].indexOf.call(document.querySelectorAll('.page'), page), 1);
             page.parentNode.removeChild(page);
+            controller.saveLocalStorage();
         }
         else if(className === 'editBtn') {
             page = target.parentNode.parentNode;
@@ -137,6 +142,13 @@
             controller.showEditBox(false, i);
         }
     })
-
-    controller.init();
+    var recipeArr, initInnerRes = '';
+    if(localStorage.yuyang_cache) {
+        recipeArr = JSON.parse(localStorage.yuyang_cache).forEach(function(v, i) {
+            viewModel.list.push(Recipe(v.header, v.list.join(',')));
+            initInnerRes += '<div class="page">' + helper.getInnerString(viewModel.list[i]) + '</div>';
+        });
+        container.innerHTML = initInnerRes;
+    }
+    else controller.init();
 })(window, document);
