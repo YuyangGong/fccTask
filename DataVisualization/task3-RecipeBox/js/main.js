@@ -72,7 +72,7 @@
             this.btnCacel();
         },
         saveLocalStorage: function() {
-            localStorage["yuyang_cache"] = JSON.stringify(viewModel.list.reduce(function(s, v) {
+            localStorage["_YuyangGong_cache"] = JSON.stringify(viewModel.list.reduce(function(s, v) {
                 return s.concat({header: v.header, list: v.list});
             }, []));
         },
@@ -143,8 +143,8 @@
         }
     })
     var recipeArr, initInnerRes = '';
-    if(localStorage.yuyang_cache) {
-        recipeArr = JSON.parse(localStorage.yuyang_cache).forEach(function(v, i) {
+    if(localStorage._YuyangGong_cache) {
+        recipeArr = JSON.parse(localStorage._YuyangGong_cache).forEach(function(v, i) {
             viewModel.list.push(Recipe(v.header, v.list.join(',')));
             initInnerRes += '<div class="page">' + helper.getInnerString(viewModel.list[i]) + '</div>';
         });
