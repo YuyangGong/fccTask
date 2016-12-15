@@ -55,3 +55,16 @@ button {
     border: none;   
 }
 /* main */
+.container {
+    margin: 0 auto;
+    width: 600px;
+    overflow: hidden;
+}
+.container div {
+    /*display: inline-block;*/
+    float: left;
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    border: 1px solid red;
+}
