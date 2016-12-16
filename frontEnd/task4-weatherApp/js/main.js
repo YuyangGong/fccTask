@@ -52,12 +52,12 @@
 		if(color == "rgb(95, 174, 96)") {
 			style.backgroundColor = "#d14242";
 			val(this, "to Fahrenheit");
-			val(weatherNum, toCels(+weatherNum.innerHTML.replace(/[^\d]/g, '')) + '°F');
+			val(weatherNum, toCels(+weatherNum.innerHTML.replace(/[^\d]/g, '')) + '°C');
 		}
 		else {
 			style.backgroundColor = "#5fae60";
 			val(this, "to Celsius");
-			val(weatherNum, toFahre(+weatherNum.innerHTML.replace(/[^\d]/g, '')) + '°C');
+			val(weatherNum, toFahre(+weatherNum.innerHTML.replace(/[^\d]/g, '')) + '°F');
 		}
 	});
 
