@@ -126,6 +126,9 @@
 			this.reset();
 			this.random();
 			this.run();
+			document.querySelector('.fast').style.backgroundColor = "#bc51a3";
+			document.querySelector('.middle').style.backgroundColor = "#bc51a3";
+			document.querySelector('.run').style.backgroundColor = "#bc51a3";
 		}
 	}
 
@@ -179,8 +182,14 @@
 			className = target.className.toLowerCase();
 		if(tagName === 'button') {
 			settingController[className]();
-			settingController.clearStyle(target);
-			target.style.backgroundColor = "#bc51a3";
+			if(className !== 'seed') {
+				settingController.clearStyle(target);
+				if(className === 'clear') {
+					document.querySelector('.pause').style.backgroundColor = "#bc51a3";
+					return;
+				}
+				target.style.backgroundColor = "#bc51a3";
+			}
 		}
 	})
 
