@@ -1,11 +1,12 @@
 ;(function(window, document, undefined) {
 	'use strict';
 	var container = document.querySelector('.container'),
-		setting = document.querySelector('.setting');
+		setting = document.querySelector('.setting'),
+		generation = document.getElementById('generation');
 
 	var model = {
 		board: [],
-		speed: 200,
+		speed: 100,
 		timer: null,
 		boardSize: [55, 40],
 		cellSize: [7, 7],
@@ -38,6 +39,7 @@
 					cells[i * innerLen + j].style.backgroundColor = (value == 2 ? olderColor : (value == 1 ? youngColor : dieColor));
 				}
 			}
+			generation.innerHTML = model.generation;
 		},
 		generate: function() {
 			var board = model.board,

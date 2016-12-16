@@ -87,12 +87,15 @@ body {
     cursor: pointer;
 }
 .wrap {
-      float: left; /* 自适应内容宽度 */
-      position: relative;
-      left: 50%; }
+    float: left; 
+    position: relative;
+    left: 50%; }
 .setting {
-      position: relative;
-      left: -50%; 
+    position: relative;
+    left: -50%; 
+}
+.board-control {
+    margin-top: .3rem;
 }
 button {
     width: 4rem;
