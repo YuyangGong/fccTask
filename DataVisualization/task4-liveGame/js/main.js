@@ -10,7 +10,7 @@
 		timer: null,
 		boardSize: [55, 40],
 		cellSize: [7, 7],
-		cellBorderColor: 'red',
+		cellBorderColor: '#aaa',
 		isRun: false,
 		generation: 0,
 		largeSize: [70, 50],
