@@ -55,8 +55,26 @@ button {
     border: none;   
 }
 /* main */
+html {
+    height: 100%;
+    font-size: 20px;
+    font-family: 'Microsoft YaHei';
+}
+body {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(45deg, #bb469d 0%, #bd63ac 10%, #c58abd 20%, #d2aac7 30%, #cbbdc2 40%, #cbcac7 50%, #c1cec7 60%, #afe4d5 70%, #8dddd1 80%, #6ad3ce 90%, #50c8c9 100%);
+}
 .container {
-    margin: 0 auto;
+    margin: 1rem auto 1rem;
+    padding: 1rem;
+    background-image: -webkit-radial-gradient(rgba(0, 0, 0, .4), rgba(255, 255, 255, .4));
+    background-image: -moz-radial-gradient(rgba(0, 0, 0, .4), rgba(255, 255, 255, .4));
+    background-image: -ms-radial-gradient(rgba(0, 0, 0, .4), rgba(255, 255, 255, .4));
+    background-image: -o-radial-gradient(rgba(0, 0, 0, .4), rgba(255, 255, 255, .4));
+    background-image: radial-gradient(rgba(0, 0, 0, .4), rgba(255, 255, 255, .4));
+    border-radius: 1rem;
     width: 600px;
     overflow: hidden;
 }
@@ -66,4 +84,45 @@ button {
     height: 10px;
     background-color: black;
     border: 1px solid red;
+    cursor: pointer;
+}
+.wrap {
+      float: left; /* 自适应内容宽度 */
+      position: relative;
+      left: 50%; }
+.setting {
+      position: relative;
+      left: -50%; 
+}
+button {
+    width: 4rem;
+    height: 1.5rem;
+    font-size: .8rem;
+    color: white;
+    margin: .2rem .4rem;
+    border-radius: 11111px;
+    background-color: #55caca;
+    box-shadow: 1px 1px 10px 1px rgba(255, 255, 255, .2);
+    opacity: .65;
+    transition: all .3s ease-in-out;
+}
+button:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 580px) {
+    html {
+        font-size: 12px;
+    }
+    .setting > div {
+        margin-bottom: 1rem;
+    }
+    .setting span {
+        display: block;
+        margin-bottom: .4rem;
+    }
+    button {
+    width: 5rem;
+    }
 }

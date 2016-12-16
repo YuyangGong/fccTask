@@ -7,11 +7,14 @@
 		board: [],
 		speed: 200,
 		timer: null,
-		boardSize: [50, 30],
-		cellSize: [8, 8],
+		boardSize: [55, 40],
+		cellSize: [7, 7],
 		cellBorderColor: 'red',
 		isRun: false,
 		generation: 0,
+		largeSize: [70, 50],
+		middleSize: [60, 40],
+		smallSize: [50, 30],
 		dieColor: 'black',
 		youngColor: '#0ff',
 		olderColor: '#00f',
@@ -147,16 +150,23 @@
 			model.speed = 400;
 		},
 		'large': function() {
-			model.boardSize = [80, 50];
+			model.boardSize = model.largeSize;
 			controller.reset();
 		},
 		'middle': function() {
-			model.boardSize = [65, 40];
+			model.boardSize = model.middleSize;
 			controller.reset();
 		},
 		'small': function() {
-			model.boardSize = [50, 30];
+			model.boardSize = model.smallSize;
 			controller.reset();
+		},
+		'clearStyle': function(target) {
+			var parent = target.parentNode,
+				btns = parent.getElementsByTagName('button');
+			[].forEach.call(btns, function(v) {
+				v.style.backgroundColor = '#55caca';
+			})
 		}
 	}
 
@@ -167,6 +177,8 @@
 			className = target.className.toLowerCase();
 		if(tagName === 'button') {
 			settingController[className]();
+			settingController.clearStyle(target);
+			target.style.backgroundColor = "#bc51a3";
 		}
 	})
 
@@ -182,6 +194,19 @@
 			controller.render();
 		}
 	})
+
+	var ua = navigator.userAgent;
+	var ipad = ua.match(/(iPad).*OS\s([\d_]+)/),
+   	    isIphone = !ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/),
+        isAndroid = ua.match(/(Android)\s+([\d.]+)/),
+        isMobile = isIphone || isAndroid;
+    if(isMobile) {
+        model.cellSize = [3, 3];
+        model.largeSize = [45, 60];
+		model.middleSize = [40, 55];
+		model.smallSize = [35, 50];
+		model.boardSize = [40, 55];
+    }
 
 	controller.init();
 	
