@@ -125,6 +125,9 @@ button:hover {
         display: block;
         margin-bottom: .4rem;
     }
+    #generate {
+        display: inline;
+    }
     button {
     width: 5rem;
     }
