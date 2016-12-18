@@ -20,4 +20,24 @@
 		this.exp = 0;
 	}
 
+	function Enemy() {
+		
+	}
+
+	function Wall() {
+
+	}
+
+	function Tool() {
+
+	}
+
+	function Door() {
+
+	}
+
+	function weapon() {
+		
+	}
+
 })(window, document);
