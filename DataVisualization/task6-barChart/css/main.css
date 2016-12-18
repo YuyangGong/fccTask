@@ -84,6 +84,9 @@ button {
     opacity: 0;
     transition: all .3s ease-in-out;
 }
+.container div:hover {
+    background-color: red;
+}
 .container div:hover span {
     opacity: 1;
 }
