@@ -30,23 +30,17 @@
 		}
 	}
 
-	function getMonth(str) {
-		var monthMap = ['Janurary', 'February', 'March', 'April', 'May', 'June', 'August', 'September', 'October', 'November', 'December'],
-			month = str.match(/-0?(.*?)-/)[1];
-		return monthMap[month - 1];
-	}
-
 	ajax({
-		address: "https://raw.githubusercontent.com/FreeCodeCamp/ProjectReferenceData/master/GDP-data.json",
-		callback: function(res) {
-			var datas = res.data,
-				str = "",
-				len = datas.length,
+		address: "https://raw.githubusercontent.com/FreeCodeCamp/ProjectReferenceData/master/cyclist-data.json",
+		callback: function(data) {
+			var len = data.length,
+				res = "",
 				i;
 			for(i = 0; i < len; i++) {
-				str += "<div style='height:" + (datas[i][1] / 40) + "px;left:" + (20 + i * 4) + "px'><span>$" + (datas[i][1]) + "0 Billion " + (datas[i][0].slice(0, 4)) + "-" + (getMonth(datas[i][0])) + "</span></div>";
+				res += "<div style='height:" + (data[i][1] / 40) + "px;left:" + (20 + i * 4) + "px'>" + 
+				"<span><h5></h5>" + (data[i].Name) + ": " + (data[i].Nationality) + "<br/> Year: " + (data[i].Year) + "<br/>Time: " + (data[i].Time) + (data[i].Doping ? ("<h6>" + data[i].Doping +"</h6>") : "") + "</span></div>";
 			}
-			container.innerHTML = "Gross Domestic Product" + str;
+			container.innerHTML = "<h2>Doping in Professional Bicycle Racing</h2><h3>35 Fastest times up Alpe d'Huez</h3><h4>Normalized to 13.8km distance</h4>" + res;
 		}
 	});
 })(window, document);
