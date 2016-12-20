@@ -84,7 +84,6 @@ button {
     height: 420px;
     color: #777;
     font-weight: 100;
-    background-color: #eee;
 }
 .graph div {
     position: absolute;
@@ -96,7 +95,8 @@ button {
 }
 .graph div span {
     position: absolute;
-    top: 10px;
+    top: -80px;
+    left: -55px;
     display: none;
     text-align: center;
     font-size: 12px;
@@ -114,88 +114,84 @@ h5, h6 {
     margin: 6px 0;
 }
 .graph div:hover {
-    box-shadow: 1px 1px 5px 1px blue;
+    border: 1px 1px 5px 1px blue;
 }
 .graph div:hover span {
     display: block;
-/*}
+}
+.color-block {
+    position: absolute;
+    right: 106px;
+    bottom: 20px;
+    width: 360px;
+    height: 20px;
+}
+.color-block div {
+    position: absolute;
+    width: 30px;
+    height: 20px;
+    font-size: 12px;
+    font-weight: 100;
+    color: #555;
+}
+.color-block div span {
+    position: absolute;
+    display: inline-block;
+    top: 25px;
+    right: 11px;
+}
+.color-block > div:last-child span, .color-block > div:nth-last-child(2) span {
+    right: 7px;
+}
+
 .x-line {
     position: absolute;
-    left: 90px;
-    width: 950px;
-    height: 1px;
+    left: 104px;
+    width: 1052px;
+    height: 2px;
     background-color: #000;
+}
+.x-line:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2px;
+    height: 10px;
+    background-color: black;
+}
+.x-line:after {
+    content: "Years";
+    position: absolute;
+    font-size: 16px;
+    top: 38px;
+    left: 500px;
+}
+.x-line div {
+    position: absolute;
+    top: 15px;
+    font-size: 12px;
+    font-weight: 400;
+}
+.x-line div:before {
+    content: '';
+    position: absolute;
+    left: 13px;
+    top: -15px;
+    width: 2px;
+    height: 10px;
+    background-color: black;
 }
 .y-line {
+    text-align: right;
+}
+.y-line div {
     position: absolute;
-    left: -90px;
-    top: 288px;
-    width: 380px;
-    height: 1px;
-    background-color: #000;
-    transform: rotate(90deg);
 }
-.x-line-num, .y-line-num {
+.y-line:before {
+    content: "Months";
     position: absolute;
-    font-size: 14px;
-    font-weight: 100;
+    top: 340px;
+    left: 0;
+    font-size: 16px;
 }
-.x-line-num {
-    top: -377px;
-    left: -20px;
-}
-.x-line-num:before {
-    content: '.';
-    font-size: 0;
-    position: absolute;
-    top: 7px;
-    left: 22px;
-    width: 8px;
-    height: 1px;
-    background-color: #000;
-}
-.x-line-num:first-child {
-    left: -12px;
-}
-.x-line-num:first-child:before {
-    left: 15px;
-}
-.x-line-num:first-child:after {
-    content: 'Ranking';
-    position: absolute;
-    left: -80px;
-    top: 20px;
-    font-weight: 900;
-    transform: rotate(-90deg);
-    font-size: 20px;
-}
-.x-line-num:nth-child(2) {
-    left: -12px;
-}
-.x-line-num:nth-child(2):before {
-    left: 15px;
-}
-.y-line-num {
-    top: 480px;
-    left: 1015px;
-}
-.y-line-num:before {
-    content: '.';
-    font-size: 0;
-    position: absolute;
-    transform: rotate(-90deg);
-    top: -8px;
-    left: 14px;
-    width: 8px;
-    height: 1px;
-    background-color: #000;
-}
-.y-line-num:first-child:after {
-    content: 'Minutes Behind Fastest Time(min)';
-    position: absolute;
-    right: 315px;
-    top: 25px;
-    white-space: nowrap;
-    font-weight: 900;
-    font-size: 20px;
-}*/

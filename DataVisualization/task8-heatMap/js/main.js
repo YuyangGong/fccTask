@@ -32,8 +32,21 @@
 	}
 
 	function getMonth(str) {
-		var monthMap = ['Janurary', 'February', 'March', 'April', 'May', 'June', 'August', 'September', 'October', 'November', 'December'];
+		var monthMap = ['Janurary', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 		return monthMap[str - 1];
+	}
+
+	var colorSet = new Array(12).join('-').split('-').map(function(_, i) {
+			return "rgb(" + (i * 15) + ", " + (i*25) + ", " + (i*20) + ")";
+		});
+
+	function getColor(num) {
+		var rangeSet = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+			i = colorSet.length;
+		while(i--) {
+			if(num > rangeSet[i]) break;
+		}
+		return colorSet[i] || colorSet[i + 1];
 	}
 
 	ajax({
@@ -43,34 +56,44 @@
 				len = data.length,
 				baseTemperature = respond.baseTemperature,
 				res = "",
+				temper,
 				i;
 			for(i = 0; i < len; i++) {
-				res += "<div style='top:" + (i%12*35) + "px;left:" + ((i/12|0)*4) + "px;background-color:()'>" + 
-					   "<span><h5>" + (data[i].year) + " - " + (getMonth(data[i].month)) + "</h5><h6>" + (baseTemperature - data[i].variance).toFixed(3) + " C°</h6>" + (data[i].variance) + " C°</span></div>";
+				temper = (baseTemperature + data[i].variance).toFixed(3);
+				res += "<div style='top:" + (i%12*35) + "px;left:" + ((i/12|0)*4) + "px;background-color:" + (getColor(+temper)) + "'>" + 
+					   "<span><h5>" + (data[i].year) + " - " + (getMonth(data[i].month)) + "</h5><h6>" + temper + " C°</h6>" + (data[i].variance) + " C°</span></div>";
 			}
 			graph.innerHTML = res;
 		}
 	});
 
-	// function paintNum() {
-	// 	var xLine = document.querySelector('.x-line'),
-	// 		yLine = document.querySelector('.y-line-inner'),
-	// 		xRes = '',
-	// 		yRes = '',
-	// 		i;
-	// 	function getTimeStr(i, gap) {
-	// 		var sum = i * gap;
-	// 		return ('00' + (sum/60|0)).slice(-2) + ":" + ('00' + (sum % 60)).slice(-2);
-	// 	} 
-	// 	for(i = 0; i < 8; i++) {
-	// 		xRes += "<div class='x-line-num' style='top:" + (49*i - 377) + "px'>"+(i*5)+"</div>"
-	// 	}
-	// 	for(i = 0; i < 10; i++) {
-	// 		yRes += "<div class='y-line-num' style='left:" + (1015 - i*100) + "px'>" + getTimeStr(i, 20) + "</div>";
-	// 	}
-	// 	xLine.innerHTML = xRes;
-	// 	yLine.innerHTML = yRes;
-	// }
+	function paintColorBlock() {
+		var colorBlock = document.querySelector('.color-block'),
+			res = "",
+			i;
+		console.log(colorBlock)
+		for(i = 0; i < 12; i++) {
+			res += "<div style='left:" + (i*30) + "px;background-color:" + (colorSet[i]) + "'><span>" + i + "</span></div>";
+		}
+		colorBlock.innerHTML = res;
+	}
+	paintColorBlock();
 
-	// paintNum();
+	function paintNum() {
+		var xLine = document.querySelector('.x-line'),
+			//yLine = document.querySelector('.y-line-inner'),
+			xRes = '',
+			yRes = '',
+			i;
+		for(i = 0; i < 26; i++) {
+			xRes += "<div style='right:" + (7 + i * 40) + "px'>" + (2010 - i*10) + "</div>";
+		}
+		for(i = 0; i < 10; i++) {
+			//yRes += "<div class='y-line-num' style='left:" + (1015 - i*100) + "px'>" + getTimeStr(i, 20) + "</div>";
+		}
+		xLine.innerHTML = xRes;
+		//yLine.innerHTML = yRes;
+	}
+
+	paintNum();
 })(window, document);
