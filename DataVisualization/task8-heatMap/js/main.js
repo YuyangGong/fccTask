@@ -77,23 +77,23 @@
 		}
 		colorBlock.innerHTML = res;
 	}
-	paintColorBlock();
 
 	function paintNum() {
 		var xLine = document.querySelector('.x-line'),
-			//yLine = document.querySelector('.y-line-inner'),
+			yLine = document.querySelector('.y-line'),
 			xRes = '',
 			yRes = '',
 			i;
 		for(i = 0; i < 26; i++) {
 			xRes += "<div style='right:" + (7 + i * 40) + "px'>" + (2010 - i*10) + "</div>";
 		}
-		for(i = 0; i < 10; i++) {
-			//yRes += "<div class='y-line-num' style='left:" + (1015 - i*100) + "px'>" + getTimeStr(i, 20) + "</div>";
+		for(i = 0; i < 12; i++) {
+			yRes += "<div style='top:" + (10 + i*35) + "px'>" + getMonth(i + 1) + "</div>";
 		}
 		xLine.innerHTML = xRes;
-		//yLine.innerHTML = yRes;
+		yLine.innerHTML = yRes;
 	}
 
+	paintColorBlock();
 	paintNum();
 })(window, document);

@@ -183,15 +183,26 @@ h5, h6 {
     background-color: black;
 }
 .y-line {
+    position: absolute;
+    top: 140px;
+    left: 80px;
+    width: 20px;
+    height: 420px;
     text-align: right;
 }
 .y-line div {
     position: absolute;
+    top: 10px;
+    right: 0;
+    font-size: 13px;
+    font-weight: 100;
+    color: #555;
 }
 .y-line:before {
     content: "Months";
     position: absolute;
-    top: 340px;
-    left: 0;
+    top: 190px;
+    right: 40px;
     font-size: 16px;
+    transform: rotate(-90deg);
 }
