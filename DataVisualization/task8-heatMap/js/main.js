@@ -31,40 +31,46 @@
 		}
 	}
 
+	function getMonth(str) {
+		var monthMap = ['Janurary', 'February', 'March', 'April', 'May', 'June', 'August', 'September', 'October', 'November', 'December'];
+		return monthMap[str - 1];
+	}
+
 	ajax({
-		address: "https://raw.githubusercontent.com/FreeCodeCamp/ProjectReferenceData/master/cyclist-data.json",
-		callback: function(data) {
-			var len = data.length,
+		address: "https://raw.githubusercontent.com/FreeCodeCamp/ProjectReferenceData/master/global-temperature.json",
+		callback: function(respond) {
+			var data = respond.monthlyVariance,
+				len = data.length,
+				baseTemperature = respond.baseTemperature,
 				res = "",
 				i;
 			for(i = 0; i < len; i++) {
-				res += "<div style='top:" + (i * 10) + "px;right:" + (5 * (data[i].Seconds - 2210)) + "px;background-color:" + 
-				 		(data[i].Doping ? "red" : "green") + "'>" + data[i].Name +
-						"<span><h5></h5>" + (data[i].Name) + ": " + (data[i].Nationality) + "<br/> Year: " + (data[i].Year) + "<br/>Time: " + (data[i].Time) + (data[i].Doping ? ("<h6>" + data[i].Doping +"</h6>") : "") + "</span></div>";
+				res += "<div style='top:" + (i%12*35) + "px;left:" + ((i/12|0)*4) + "px;background-color:()'>" + 
+					   "<span><h5>" + (data[i].year) + " - " + (getMonth(data[i].month)) + "</h5><h6>" + (baseTemperature - data[i].variance).toFixed(3) + " C°</h6>" + (data[i].variance) + " C°</span></div>";
 			}
 			graph.innerHTML = res;
 		}
 	});
 
-	function paintNum() {
-		var xLine = document.querySelector('.x-line'),
-			yLine = document.querySelector('.y-line-inner'),
-			xRes = '',
-			yRes = '',
-			i;
-		function getTimeStr(i, gap) {
-			var sum = i * gap;
-			return ('00' + (sum/60|0)).slice(-2) + ":" + ('00' + (sum % 60)).slice(-2);
-		} 
-		for(i = 0; i < 8; i++) {
-			xRes += "<div class='x-line-num' style='top:" + (49*i - 377) + "px'>"+(i*5)+"</div>"
-		}
-		for(i = 0; i < 10; i++) {
-			yRes += "<div class='y-line-num' style='left:" + (1015 - i*100) + "px'>" + getTimeStr(i, 20) + "</div>";
-		}
-		xLine.innerHTML = xRes;
-		yLine.innerHTML = yRes;
-	}
+	// function paintNum() {
+	// 	var xLine = document.querySelector('.x-line'),
+	// 		yLine = document.querySelector('.y-line-inner'),
+	// 		xRes = '',
+	// 		yRes = '',
+	// 		i;
+	// 	function getTimeStr(i, gap) {
+	// 		var sum = i * gap;
+	// 		return ('00' + (sum/60|0)).slice(-2) + ":" + ('00' + (sum % 60)).slice(-2);
+	// 	} 
+	// 	for(i = 0; i < 8; i++) {
+	// 		xRes += "<div class='x-line-num' style='top:" + (49*i - 377) + "px'>"+(i*5)+"</div>"
+	// 	}
+	// 	for(i = 0; i < 10; i++) {
+	// 		yRes += "<div class='y-line-num' style='left:" + (1015 - i*100) + "px'>" + getTimeStr(i, 20) + "</div>";
+	// 	}
+	// 	xLine.innerHTML = xRes;
+	// 	yLine.innerHTML = yRes;
+	// }
 
-	paintNum();
+	// paintNum();
 })(window, document);

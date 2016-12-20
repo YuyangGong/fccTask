@@ -53,7 +53,7 @@ button {
     position: relative;
     text-align: center;
     height: 640px;
-    width: 1140px;
+    width: 1260px;
     padding: 15px 0px;
     box-sizing: border-box;
     font-size: 40px;
@@ -72,43 +72,27 @@ button {
     color: #888;
 }
 .container h4 {
-    font-size: 16px;
-    margin: 0;
+    font-size: 12px;
+    width: 400px;
+    margin: 0 auto;
     color: #ccc;
 }
 .graph {
     position: relative;
-    width: 940px;
-    margin: 0 auto;
-    height: 370px;
+    width: 1052px;
+    margin: 20px auto 0;
+    height: 420px;
     color: #777;
     font-weight: 100;
+    background-color: #eee;
 }
-.graph div, .doping, .no-doping {
+.graph div {
     position: absolute;
     box-sizing: border-box;
-    text-indent: 12px;
-    font-size: 12px;
-    white-space: nowrap;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
+    width: 4px;
+    height: 35px;
     background-color: black;
     cursor: pointer;
-}
-.doping, .no-doping {
-    color: #555;
-    cursor: none;
-}
-.doping {
-    right: 220px;
-    top: 260px;
-    background-color: red;
-}
-.no-doping {
-    right: 220px;
-    top: 285px;
-    background-color: green;
 }
 .graph div span {
     position: absolute;
@@ -116,8 +100,8 @@ button {
     display: none;
     text-align: center;
     font-size: 12px;
-    width: 140px;
-    padding: 5px 5px;
+    width: 120px;
+    padding: 5px 5px 10px;
     border-radius: 10px;
     white-space: pre-wrap;
     background-color: white;
@@ -134,7 +118,7 @@ h5, h6 {
 }
 .graph div:hover span {
     display: block;
-}
+/*}
 .x-line {
     position: absolute;
     left: 90px;
@@ -214,4 +198,4 @@ h5, h6 {
     white-space: nowrap;
     font-weight: 900;
     font-size: 20px;
-}
+}*/
