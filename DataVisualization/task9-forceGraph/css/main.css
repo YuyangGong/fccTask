@@ -62,26 +62,17 @@ button {
     margin: 30px auto;
     box-shadow: 1px 1px 30px 1px rgba(0, 0, 0, .2);
 }
-.container h2 {
-    font-size: 24px;
-    margin: .4em;
-}
+
 .container h3 {
     font-size: 20px;
     margin: .2em;
     color: #888;
 }
-.container h4 {
-    font-size: 12px;
-    width: 400px;
-    margin: 0 auto;
-    color: #ccc;
-}
+
 .graph {
     position: relative;
     width: 1052px;
     margin: 20px auto 0;
     height: 420px;
-    color: #777;
-    font-weight: 100;
+    background-color: #eee;
 }

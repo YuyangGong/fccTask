@@ -31,10 +31,23 @@
 		}
 	}
 
+	function generateDiv(str) {
+		return '<div  class="flag flag-' + str + '"></div>';
+	}
+
 	ajax({
-		address: "https://raw.githubusercontent.com/FreeCodeCamp/ProjectReferenceData/master/global-temperature.json",
+		address: "https://raw.githubusercontent.com/DealPete/forceDirected/master/countries.json",
 		callback: function(respond) {
-			
+			var graph = document.querySelector('.graph'),
+				nodes = respond.nodes,
+				links = respond.links,
+				res = "",
+				len = nodes.length,
+				i;
+			for(i = 0; i < len; i++) {
+				res += generateDiv(nodes[i].code);
+			}
+			graph.innerHTML = res;
 		}
 	});
 
