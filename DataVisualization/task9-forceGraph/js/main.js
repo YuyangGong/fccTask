@@ -31,8 +31,8 @@
 		}
 	}
 
-	function generateDiv(str) {
-		return '<div  class="flag flag-' + str + '"></div>';
+	function generateDiv(s1, s2) {
+		return '<div  class="flag flag-' + s1 + '" title="' + s2 + '"></div>';
 	}
 
 	ajax({
@@ -45,7 +45,7 @@
 				len = nodes.length,
 				i;
 			for(i = 0; i < len; i++) {
-				res += generateDiv(nodes[i].code);
+				res += generateDiv(nodes[i].code, nodes[i].country);
 			}
 			graph.innerHTML = res;
 		}
