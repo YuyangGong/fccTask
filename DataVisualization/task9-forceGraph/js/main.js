@@ -36,7 +36,11 @@
 	}
 
 	function paintLine(x1, y1, x2, y2) {
-		
+
+	}
+
+	function getPosition(elem) {
+		return [elem.offsetLeft, elem.offsetTop];
 	}
 
 	ajax({
@@ -55,4 +59,8 @@
 		}
 	});
 
+	var div = graph.querySelectorAll('div');
+	var svg = document.getElementById('line');
+	svg.innerHTML = '<line x1="234" y1="126" x2="200" y2="300"/>';
+// left 104 top 59  add16
 })(window, document);
