@@ -35,32 +35,49 @@
 		return '<div  class="flag flag-' + s1 + '" title="' + s2 + '"></div>';
 	}
 
-	function paintLine(x1, y1, x2, y2) {
-
+	var xPos = [114, 246, 378, 510, 642, 774, 906].map(function(v){return v + 120;});
+	function getPositionX(n) {
+		return xPos[n % 7];
 	}
 
-	function getPosition(elem) {
-		return [elem.offsetLeft, elem.offsetTop];
+	function getPositionY(n) {
+		return 125 + Math.floor(n/7) * 136;
+	}
+
+	function generateGraph(respond) {
+		var graph = document.querySelector('.graph'),
+			nodes = respond.nodes,
+			res = "",
+			len = nodes.length,
+			i;
+		for(i = 0; i < len; i++) {
+			res += generateDiv(nodes[i].code, nodes[i].country);
+		}
+		graph.innerHTML = res;
+	}
+
+	function generateLines(respond) {
+		var svg = document.getElementById('line'),
+			links = respond.links,
+			res = "",
+			len = links.length,
+			i;
+		for(i = 0; i < len; i++) {
+			res += '<line x1="'+(getPositionX(links[i].target))+'" y1="'+(getPositionY(links[i].target))+'" x2="'+(getPositionX(links[i].source))+'" y2="'+(getPositionY(links[i].source))+'"/>';
+		}
+		svg.innerHTML = res;
 	}
 
 	ajax({
 		address: "https://raw.githubusercontent.com/DealPete/forceDirected/master/countries.json",
 		callback: function(respond) {
-			var graph = document.querySelector('.graph'),
-				nodes = respond.nodes,
-				links = respond.links,
-				res = "",
-				len = nodes.length,
-				i;
-			for(i = 0; i < len; i++) {
-				res += generateDiv(nodes[i].code, nodes[i].country);
-			}
-			graph.innerHTML = res;
-		}
+			generateGraph(respond);
+			generateLines(respond);
+		}	
 	});
 
-	var div = graph.querySelectorAll('div');
-	var svg = document.getElementById('line');
-	svg.innerHTML = '<line x1="234" y1="126" x2="200" y2="300"/>';
+	// var div = graph.querySelectorAll('div');
+	// var svg = document.getElementById('line');
+	// svg.innerHTML = '<line x1="234" y1="126" x2="200" y2="300"/>';
 // left 104 top 59  add16
 })(window, document);
