@@ -35,6 +35,10 @@
 		return '<div  class="flag flag-' + s1 + '" title="' + s2 + '"></div>';
 	}
 
+	function paintLine(x1, y1, x2, y2) {
+		
+	}
+
 	ajax({
 		address: "https://raw.githubusercontent.com/DealPete/forceDirected/master/countries.json",
 		callback: function(respond) {
