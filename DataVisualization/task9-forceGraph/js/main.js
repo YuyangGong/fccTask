@@ -1,4 +1,4 @@
-;(function(window, document, undefined) {
+;~function(window, document, undefined) {
 	'use strict';
 
 	var container = document.querySelector(".container"),
@@ -68,16 +68,32 @@
 		svg.innerHTML = res;
 	}
 
+	function generateTree(respond) {
+		var links = respond.links,
+			nodes = respond.nodes,
+			len = links.length,
+			res = {},
+			i;
+		nodes.forEach(function(_, i) {
+			res[i] = {child: [], value: i};
+		});
+		for(i = 0; i < len; i++) {
+			res[links[i].source].child.push(res[links[i].target]);
+		}
+		return res; 
+	}
 	ajax({
 		address: "https://raw.githubusercontent.com/DealPete/forceDirected/master/countries.json",
 		callback: function(respond) {
 			generateGraph(respond);
 			generateLines(respond);
+			console.log(generateTree(respond));
 		}	
 	});
 
 	// var div = graph.querySelectorAll('div');
 	// var svg = document.getElementById('line');
 	// svg.innerHTML = '<line x1="234" y1="126" x2="200" y2="300"/>';
-// left 104 top 59  add16
-})(window, document);
+	// left 104 top 59  add16
+
+}(window, document);
