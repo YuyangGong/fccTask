@@ -2,7 +2,9 @@
 	'use strict';
 
 	var container = document.querySelector(".container"),
-		graph = document.querySelector(".graph");
+		graph = document.querySelector(".graph"),
+		svg = document.getElementById('line'),
+		lastClick;
 	
 	function ajax(arg) {
 		var require, key, header = arg.header;
@@ -92,7 +94,6 @@
 	// }
 
 
-
 	ajax({
 		address: "https://raw.githubusercontent.com/DealPete/forceDirected/master/countries.json",
 		callback: function(respond) {
@@ -100,4 +101,19 @@
 			 generateLines(respond);
 		}	
 	});
+
+	svg.addEventListener('click', function(e) {
+		e = e || window.event;
+		var target = e.target || e.srcElement;
+		if(target.tagName.toLowerCase() === 'line') {
+			if(lastClick) {
+				lastClick.style.strokeWidth = '1';
+				lastClick.style.stroke = '#999';
+			}
+			lastClick = target;
+			lastClick.style.strokeWidth = '6';
+			lastClick.style.stroke = 'red';
+		}
+	})
+
 }(window, document);

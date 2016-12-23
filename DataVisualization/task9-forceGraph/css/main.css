@@ -85,7 +85,7 @@ svg {
     height: 100%;
 }
 svg line {
-    stroke: red;
+    stroke: #999;
     stroke-width: 1px;
 }
 svg line:hover {
