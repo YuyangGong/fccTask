@@ -31,14 +31,23 @@
 		}
 	}
 
+	function getLarge(mass) {
+		if(mass > Math.pow(10, 7)) return 50;
+		else if(mass > Math.pow(10, 6)) return 40;
+		else if(mass > Math.pow(10, 5)) return 30;
+		else if(mass > Math.pow(10, 4)) return 20;
+		else if(mass > Math.pow(10, 3)) return 10;
+		return 4;
+	}
+
 	function generateStr(obj) {
 		if(!obj.geometry) return '';
 		var coord = obj.geometry.coordinates,
 			left = (coord[0] + 180)/360 * 950 + 'px',
 			top = (coord[1] + 90)/180 * 620 + 'px',
 			mass = obj.properties.mass || 1,
-			large = mass / 5;
-		return '<div style="left:' + (left) + '; top:' + (top) + ';background-color:' + (generateColor()) + '">' + generateSpan(obj.properties) + '</div>';
+			large = getLarge(mass);
+		return '<div style="left:' + (left) + '; top:' + (top) + ';background-color:' + (generateColor()) + ';width:' + large + 'px;height:' + large + 'px;">' + generateSpan(obj.properties) + '</div>';
 	}
 
 	function generateSpan(obj) {
