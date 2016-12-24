@@ -49,8 +49,48 @@ button {
     border: none;   
 }
 /* main */
-/*.graph {
+body {
+    height: 700px;
+}
+.graph {
+    position: relative;
     width: 950px;
     height: 620px;
     margin: 10px auto;
-}*/
+    border: 2px solid red;
+}
+.points div {
+    position: absolute;
+    border: 1px solid #4cb392;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.points div:hover {
+    border: 1px solid red;
+}
+.points div span {
+    display: none;
+    position: absolute;
+    margin-left: 20px;
+    padding: 10px 20px 20px;
+    width: 155px;
+    border-radius: 20px;
+    background-color: #aaa;
+    color: #fff;
+    box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, .3);
+    z-index: 10;
+}
+.points div:hover span {
+    display: block;
+}
+.points h4 {
+    margin: 0;
+    padding: 2px;
+    font-weight: 100;
+}
+.points h5 {
+    display: inline;
+    font-weight: 900;
+}
