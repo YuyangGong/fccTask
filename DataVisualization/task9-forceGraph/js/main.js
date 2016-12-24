@@ -114,6 +114,10 @@
 			lastClick.style.strokeWidth = '6';
 			lastClick.style.stroke = 'red';
 		}
+		else {
+			lastClick.style.strokeWidth = '1';
+			lastClick.style.stroke = '#999';
+		}
 	})
 
 }(window, document);
