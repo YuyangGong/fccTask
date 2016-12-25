@@ -11,7 +11,10 @@
 
 	var controller = {
 		'gameover': function() {
-
+			this.reset();
+		},
+		'reset': function() {
+			
 		}
 	};
 
@@ -25,7 +28,9 @@
 	}
 	Player.prototype = {
 		'attack': function(target) {
-
+			this.health -= target.power;
+			target.power -= this.health;
+			if(this.health <= 0) controller.gameover();
 		},
 		'getHeath': function(target) {
 			this.health += target.health;
@@ -34,8 +39,13 @@
 			this.power += target.power - this.weapon.power;
 			this.weapon = target;
 		},
-		'leverUp': function() {
+		'getExp': function(target) {
+			this.exp += target.exp;
+			if(this.exp >= 100) this.levelUp();
+		},
+		'levelUp': function() {
 			this.level++;
+			this.exp -= 100;
 			this.power += 10;
 		}
 	}
