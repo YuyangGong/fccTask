@@ -6,8 +6,9 @@
 	var gameStatus = {
 		player: null,
 		isLight: false,
-		floor: 0,
-		maps: []
+		floor: 1,
+		maps: [],
+		curMap: 0
 	};
 
 	var controller = {
@@ -32,6 +33,9 @@
 		},
 		'generateMap': function(bossExist) {
 
+		},
+		'renderMap': function() {
+
 		}
 	};
 
@@ -42,7 +46,60 @@
 	}
 
 	function generateMap(bossExist) {
-		var oriMap = fillMap(100, 50);
+		function generateRoom(map, y, x, dir) {
+			if(y < 3 || y > 46 || x < 3 || x > 96) return;
+			var room;
+			if(dir === 'T') {
+				room = [[y, x], [y-1, x], [y-2, x], [y-3, x], [y-1, x+1], [y-2, x+1], [y-3, x+1], [y-1, x-1], [y-2, x-1], [y-3, x-1]];
+			}
+			else if(dir === 'B') {
+				room = [[y, x], [y+1, x], [y+2, x], [y+3, x], [y+1, x+1], [y+2, x+1], [y+3, x+1], [y+1, x-1], [y+2, x-1], [y+3, x-1]];
+			}
+			else if(dir === 'L') {
+				room = [[y, x], [y, x-1], [y, x-2], [y, x-3], [y-1, x-1], [y-1, x-2], [y-1, x-3], [y+1, x-1], [y+1, x-2], [y+1, x-3]];
+			}
+			else if(dir === 'R') {
+				room = [[y, x], [y, x+1], [y, x+2], [y, x+3], [y-1, x+1], [y-1, x+2], [y-1, x+3], [y+1, x+1], [y+1, x+2], [y+1, x+3]];
+			}
+			if(room.every(function(v) {return map[v[0]][v[1]] === '#'})) {
+				room.forEach(function(v) {
+					map[v[0]][v[1]] = '0';
+				});
+				map[y][x] = '_';
+				if(Math.rondom() < 0.5) {   //T
+					generateRoom(oriMap, y-5, 50, 'T');
+				}
+				if(Math.rondom() < 0.5) {	//B
+					generateRoom(oriMap, y+5, 50, 'B');
+				}
+				if(Math.rondom() < 0.5) {   //L
+					generateRoom(oriMap, 25, 48, 'L');
+				}
+				if(Math.rondom() < 0.5) {   //R
+					generateRoom(oriMap, 25, 52, 'R');
+				}
+			}			
+		}
+		var oriMap = fillMap(100, 50),
+			i, j;
+		for(i = 24; i < 27; i++) {
+			for(j = 49; j < 52; j++) {
+				oriMap[i][j] = '0';
+			}
+		}
+		if(Math.rondom() < 0.5) {   //T
+			generateRoom(oriMap, 23, 50, 'T');
+		}
+		if(Math.rondom() < 0.5) {	//B
+			generateRoom(oriMap, 27, 50, 'B');
+		}
+		if(Math.rondom() < 0.5) {   //L
+			generateRoom(oriMap, 25, 48, 'L');
+		}
+		if(Math.rondom() < 0.5) {   //R
+			generateRoom(oriMap, 25, 52, 'R');
+		}
+		return oriMap;
 	}
 
 
