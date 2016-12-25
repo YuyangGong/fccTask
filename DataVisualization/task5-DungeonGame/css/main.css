@@ -62,8 +62,17 @@ html {
 }
 .title h2 {
     font-size: 24px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     color: #999;
+}
+.title h3 {
+    font-size: 14px;
+    margin: 0 auto 5px;
+    font-weight: 100;
+}
+.title h3 span {
+    margin-left: 40px;
+    font-weight: 900;
 }
 .container {
     position: relative;

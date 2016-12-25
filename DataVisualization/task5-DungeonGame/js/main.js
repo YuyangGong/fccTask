@@ -1,6 +1,7 @@
 ;(function(window, document, undefined) {
 	'use strict';
-	var container = document.querySelector('.container');
+	var container = document.querySelector('.container'),
+		statusBox = document.getElementsByTagName('h3')[0];
 
 	var gameStatus = {
 		player: null,
@@ -11,20 +12,48 @@
 
 	var controller = {
 		'gameover': function() {
-			this.reset();
+			
 		},
 		'reset': function() {
-			
+
+		},
+		'updateStatus': function() {
+			var status = gameStatus, 
+				player = status.player;
+			statusBox.innerHTML = "<h3><span>Health: </span>" + player.health + 
+								  "<span>Weapon: </span>" + player.weapon.type + 
+								  "<span>Attack: </span>" + player.power + 
+								  "<span>Level: </span>" + player.level +
+								  "<span>exp: </span>" + player.exp + 
+								  "<span>Floor: </span>" + status.floor + "</h3>";
+		},
+		'init': function() {
+
+		},
+		'generateMap': function(bossExist) {
+
 		}
 	};
+
+	function fillMap(width, height) {
+		return new Array(height).join('.').split('.').map(function(v) {
+			return new Array(width + 1).join('#').split('');
+		});
+	}
+
+	function generateMap(bossExist) {
+		var oriMap = fillMap(100, 50);
+	}
+
 
 	function Player(name, level, health, power, weapon) {
 		this.name = name || "Anonymou";
 		this.level = level || 0;
 		this.health = health || 100;
 		this.power = power || 10; // depend on level and weapon(weapon's attack + level * 10)
-		this.weapon = weapon || 0;
+		this.weapon = weapon;
 		this.exp = 0;
+		this.curPos = [50, 25];
 	}
 	Player.prototype = {
 		'attack': function(target) {
