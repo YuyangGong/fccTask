@@ -113,6 +113,9 @@ html {
 .container .boss {
     background-color: black;
 }
+.container .dark {
+    background-color: black;
+}
 .title h3 span:nth-child(1):before {
     content: '';
     position: absolute;

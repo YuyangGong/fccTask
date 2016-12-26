@@ -52,6 +52,8 @@
 			var resStr = "",
 				outerLen = map.length,
 				innerLen = (map[0]||[]).length,
+				isLight = gameStatus.isLight,
+				curPos = gameStatus.player.curPos,
 				j, i, obj;
 			obj = {
 				'#': 'wall',
@@ -66,7 +68,7 @@
 			}
 			for(i = 0; i < outerLen; i++) {
 				for(j = 0; j < innerLen; j++) {
-					resStr += '<div class="' + obj[map[i][j]] + '" "></div>';
+					resStr += '<div class="' + obj[map[i][j]] + (isLight ? '' : (Math.abs(i - curPos[0])>3 || Math.abs(j - curPos[1])>3? ' dark':'')) + '" "></div>';
 				}
 			}
 			container.innerHTML = resStr; 
@@ -144,6 +146,11 @@
 				originPos[0] = targetPos[0];
 				originPos[1] = targetPos[1];
 			}
+		},
+		'toggleLight': function() {
+			var status = gameStatus;
+			status.isLight = !status.isLight;
+			this.renderMap(status.maps[status.curMap]);
 		}
 	};
 	// controller.renderMap(generateMap());
