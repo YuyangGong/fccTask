@@ -33,7 +33,7 @@
 								  "<span>Attack: </span>" + player.power + 
 								  "<span>Level: </span>" + player.level +
 								  "<span>exp: </span>" + player.exp + 
-								  "<span>Floor: </span>" + status.floor + "</h3>";
+								  "<span>Floor: </span>" + status.floor + "<button id='light'>light</button>" + "</h3>";
 		},
 		'init': function() {
 			var status = gameStatus;
@@ -321,6 +321,14 @@
 		controller.render();
 	});
 	
+	document.querySelector('.title').addEventListener('click', function(e) {
+		e = e || window.event;
+		var target = e.target || e.srcElement;
+		if(target.id = 'light') {
+			controller.toggleLight();
+		}
+	})
+
 	controller.init();
 
 })(window, document);
