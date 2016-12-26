@@ -76,8 +76,40 @@ html {
 }
 .container {
     position: relative;
+    font-size:0;
     width: 1000px;
     height: 500px;
     background-color: red;
     margin: 0 auto;
+}
+.container div {
+    display: inline-block;
+    font-size: 0;
+    width: 10px;
+    height: 10px;
+    background-color: black;
+}
+.container .wall {
+    background-color: #eee;
+}
+.container .room {
+    background-color: #444;
+}
+.container .player {
+    background-color: blue;
+}
+.container .weapon {
+    background-color: yellow;
+}
+.container .drag {
+    background-color: orange;
+}
+.container .enemy {
+    background-color: red;
+}
+.container .door {
+    background-color: green;
+}
+.container .boss {
+    background-color: black;
 }
