@@ -113,3 +113,6 @@ html {
 .container .boss {
     background-color: black;
 }
+.title span.weapon{
+    color: red;
+}
