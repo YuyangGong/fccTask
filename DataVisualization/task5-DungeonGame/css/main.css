@@ -113,6 +113,35 @@ html {
 .container .boss {
     background-color: black;
 }
-.title span.weapon{
-    color: red;
+.title h3 span:nth-child(1):before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: orange;
+    margin-left: -15px;
+}
+.title h3 span:nth-child(2):before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: yellow;
+    margin-left: -15px;
+}
+.title h3 span:nth-child(3):before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    margin-left: -15px;
+}
+.title h3 span:nth-child(6):before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: green;
+    margin-left: -15px;
 }
