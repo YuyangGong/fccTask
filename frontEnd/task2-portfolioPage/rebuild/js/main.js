@@ -4,17 +4,23 @@
 	let navBars = $("#nav-bars"),
 		nav = $("#nav"),
 		archArr = nav.find("a"),
+		header = $('.header'),
 		heightArr,
 		scrollTimer;
 		
 
 	// method for update tags height when change window size
-	let updateHeight = _ => heightArr = ['contactTag', 'portfolioTag' , 'topTag'].map(v => $(`#${v}`).position().top|0);
-    
+	let updateHeight = _ => {
+		let headerHeight = header.height();
+		heightArr = ['contactTag', 'portfolioTag' , 'topTag'].map((v, i) => ($(`#${v}`).position().top|0) - (i<2?headerHeight:0));		
+    }
     updateHeight();
 
     // toggle navbar at small device, as phone, ipad.	
-	navBars.click(_ => nav.toggle());
+	navBars.click(_ => {
+		nav.fadeToggle()
+		console.log(nav);
+	});
 
 	// move to the tag position
 	nav.click( e => {
@@ -41,7 +47,7 @@
 	
 	
 	$(window).on('scroll', e => {
-		lastTime = new Date();
+
 		const changeActive = i => {
 			archArr.removeClass('active');
 		    archArr.eq(i).addClass('active');
