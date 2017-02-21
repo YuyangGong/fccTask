@@ -45,9 +45,7 @@
 	    return false;
 	});
 	
-	
 	$(window).on('scroll', e => {
-
 		const changeActive = i => {
 			archArr.removeClass('active');
 		    archArr.eq(i).addClass('active');
